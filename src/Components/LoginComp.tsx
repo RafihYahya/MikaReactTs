@@ -1,31 +1,35 @@
 
-const LoginComp = () => {
+const RegisterComp = () => {
   return (
-    <div id='logincomp' className="w-full h-[80vh] ">
-      <div className="max-w-[1500px] w-full h-full mx-auto flex items-center ">
-        <div className="mx-auto max-w-lg scale-110 p-4 rounded-lg   ">
-          <h1 className="text-center text-2xl font-bold text-palete-400 sm:text-3xl">
-            Get started today
+    <div className="w-full h-[85vh] my-10 sm:my-0 scale-[80%] lg:scale-[80%] 3xl:scale-100 ">
+      <div className="max-w-[1500px] w-full h-full flex items-center mx-auto ">
+        <div className="mx-auto max-w-lg scale-110 p-4 rounded-lg ">
+          <h1 className="uppercase text-center text-2xl font-bold text-violet-200 sm:text-3xl">
+            Welcome Back !
           </h1>
 
           <p className="mx-auto mt-4 max-w-md text-center text-gray-500  ">
-            Login with your account, To get access to the full features of Mika
+            Login with your account, To get access to the full features of Mika.
           </p>
 
           <form
             action=""
-            className="  mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
+            className="   mb-0  space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
           >
             <p className="text-center text-lg font-medium">
-              Sign in to your account
+              Sign In to your account
             </p>
 
             <div>
+
+
+
+
               <label htmlFor="email" className="sr-only">
-                Email
+                email
               </label>
 
-              <div className="relative">
+              <div className="relative my-4">
                 <input
                   type="email"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c]"
@@ -56,10 +60,10 @@ const LoginComp = () => {
                 Password
               </label>
 
-              <div className="relative">
+              <div className="relative my-4 pb-2">
                 <input
                   type="password"
-                  className="mb-4 w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c]"
+                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c]"
                   placeholder="Enter password"
                 />
 
@@ -86,19 +90,21 @@ const LoginComp = () => {
                   </svg>
                 </span>
               </div>
+
+
             </div>
 
             <button
               type="submit"
-              className="text-md block w-full rounded-lg bg-violet-900 px-5 py-3  font-medium text-white"
+              className="transition-all duration-300 hover:text-violet-200 hover:bg-violet-950 text-md block w-full rounded-lg bg-violet-900 px-5 py-3  font-medium text-white"
             >
-              Sign in
+              Sign In
             </button>
 
             <p className="text-center text-sm text-gray-500">
-              No account? 
+              You Don't Have An Account ?
               <a className="underline px-2 " href="">
-                 Sign up
+                Sign Up
               </a>
             </p>
           </form>
@@ -108,4 +114,4 @@ const LoginComp = () => {
   );
 };
 
-export default LoginComp;
+export default RegisterComp;

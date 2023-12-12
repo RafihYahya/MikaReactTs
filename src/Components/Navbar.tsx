@@ -6,11 +6,11 @@ const Navbar = () => {
 
   return (
   
-      <div id='navbar' className='w-full h-full '>
+      <div id='navbar' className='hidden md:block w-full h-full '>
 
-            <div className='w-full h-16 backdrop-blur-xl shadow-md '>
+            <div className='w-full h-16 backdrop-blur-sm shadow-md '>
     
-              <div className=' max-w-[1500px] w-full  mx-auto  h-full flex items-center justify-between '>
+              <div className=' max-w-[1500px] w-full  mx-auto  h-full flex items-center justify-between scale-90 3xl:scale-100 '>
         
             <ul className='flex items-center '>
                 <h2 id='logo' className='px-4 text-4xl text-violet-400 bg-clip-text '>Mika</h2>

@@ -5,13 +5,17 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.87);
 
-  background-color: #1b1b1b;
+  background-color: #121212;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -19,7 +23,7 @@
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   caret-color: transparent !important;
-  
+
 }
 
 #navbar {
@@ -27,13 +31,46 @@
   font-weight: 400;
 }
 
-#logo  {
+#logo {
   font-family: Arizonia;
 }
 
-
-
 html {
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(./assets/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art.jpg);
+  animation: 100s ease-in-out 10s infinite alternate bgSizeChanger;
+  background-repeat: no-repeat;
+
 }
 
+
+@keyframes bgSizeChanger {
+  from {
+    background-size: 100%;
+  }
+
+  to {
+    background-size: 500%;
+  }
+}
+
+
+
+@media screen and (max-width: 480px) {
+  html {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art.jpg);
+    animation: 8s ease-in-out 0s bgSizeChanger forwards;
+    background-repeat: no-repeat;
+  
+  }
+  
+  
+  @keyframes bgSizeChanger {
+    from {
+      background-size: 100%;
+    }
+  
+    to {
+      background-size: 500%;
+    }
+  }
+}
