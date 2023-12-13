@@ -58,7 +58,7 @@ html {
 @media screen and (max-width: 480px) {
   html {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art.jpg);
-    animation: 8s ease-in-out 0s bgSizeChanger forwards;
+    animation: 50s ease-in-out 0s bgSizeChanger forwards;
     background-repeat: no-repeat;
   
   }
@@ -66,11 +66,11 @@ html {
   
   @keyframes bgSizeChanger {
     from {
-      background-size: 100%;
+      background-size: 400%;
     }
   
     to {
-      background-size: 500%;
+      background-size: 800%;
     }
   }
 }
