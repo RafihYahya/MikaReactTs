@@ -37,7 +37,7 @@
 
 html {
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art.jpg);
-  animation: 100s ease-in-out 10s infinite alternate bgSizeChanger;
+  animation: 90s ease-in-out 0s bgSizeChanger forwards;
   background-repeat: no-repeat;
 
 }
@@ -58,7 +58,7 @@ html {
 @media screen and (max-width: 480px) {
   html {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art.jpg);
-    animation: 50s ease-in-out 0s bgSizeChanger forwards;
+    animation: 45s ease-in-out 0s bgSizeChanger forwards;
     background-repeat: no-repeat;
   
   }

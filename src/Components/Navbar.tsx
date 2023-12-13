@@ -8,7 +8,7 @@ const Navbar = () => {
   
       <div id='navbar' className='hidden md:block w-full h-full '>
 
-            <div className='w-full h-16 backdrop-blur-sm shadow-md '>
+            <div className='w-full md:h-16 lg:h-20 backdrop-blur-sm shadow-md '>
     
               <div className=' max-w-[1500px] w-full  mx-auto  h-full flex items-center justify-between scale-90 3xl:scale-100 '>
         
