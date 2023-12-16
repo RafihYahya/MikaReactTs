@@ -35,21 +35,32 @@
   font-family: Arizonia;
 }
 
-html {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art.jpg);
-  animation: 90s ease-in-out 0s bgSizeChanger forwards;
-  background-repeat: no-repeat;
+#bgBase {
+  background-image:  url(./assets/bg_background.jpg);
+  background-size: 225%;
+  background-blend-mode:hard-light;
+}
 
+#bgAnimaLog {
+  background-image: url(./assets/bg_background.jpg);
+  animation: 75s ease-in-out 0s bgSizeChanger forwards;
+  background-repeat: no-repeat;
+}
+#bgAnimaLogBlend {
+  background-image: url(./assets/bg_background.jpg);
+  background-blend-mode: hard-light;
+  animation: 75s ease-in-out 0s bgSizeChanger forwards;
+  background-repeat: no-repeat;
 }
 
 
 @keyframes bgSizeChanger {
   from {
-    background-size: 100%;
+    background-size: 150%;
   }
 
   to {
-    background-size: 500%;
+    background-size: 400%;
   }
 }
 
@@ -57,20 +68,20 @@ html {
 
 @media screen and (max-width: 480px) {
   html {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art.jpg);
-    animation: 45s ease-in-out 0s bgSizeChanger forwards;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/bg_background.jpg);
+    animation: 40s ease-in-out 0s bgSizeChanger forwards;
     background-repeat: no-repeat;
-  
+
   }
-  
-  
+
+
   @keyframes bgSizeChanger {
     from {
       background-size: 400%;
     }
-  
+
     to {
-      background-size: 800%;
+      background-size: 700%;
     }
   }
 }

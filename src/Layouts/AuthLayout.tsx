@@ -1,7 +1,13 @@
+import { Routes,Route } from 'react-router-dom'
+import HomePage from '../Pages/HomePage'
 
 const AuthLayout = () => {
   return (
-    <div>AuthLayout</div>
+    <>
+    <Routes>
+      <Route path='/' element={<HomePage/>}/>
+    </Routes>
+    </>
   )
 }
 

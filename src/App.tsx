@@ -1,13 +1,14 @@
+import { useState } from 'react';
 import GuestLayout from './Layouts/GuestLayout'
+import AuthLayout from './Layouts/AuthLayout';
 
 
-function App() {
-
+const App = () => {
+  const [AuthToggle] = useState<boolean>(false);
   return (
     <>
-      
 
-      <GuestLayout/>
+      {!AuthToggle ? <AuthLayout /> : <GuestLayout />}
 
 
     </>
