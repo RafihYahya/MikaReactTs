@@ -8,7 +8,7 @@ const HomePage = ():JSX.Element =>  {
    
     <>
     <Navbar/>
-    <div className='w-full h-full grid grid-cols-8 m-4 gap-4'>
+    <div className='w-full h-full grid grid-cols-8 p-4 gap-4'>
         <div className='col-span-2 h-40 bg-[#EDE8E825] backdrop-blur-sm '>Miaw</div>
         <div className='col-span-2 h-40 bg-[#EDE8E815] backdrop-blur-md '>Miaw</div>
         <div className='col-span-2 h-40 bg-[#EDE8E825] backdrop-blur-md  '>Miaw</div>
