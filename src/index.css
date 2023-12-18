@@ -42,6 +42,12 @@
   background-blend-mode:hard-light;
   background-attachment: fixed;
 }
+@media screen and (max-width: 1480px){
+  #bgBase{
+    zoom: 85%;
+
+  }
+}
 
 #bgAnimaLog {
   background-image: url(./assets/bg_background.jpg);
