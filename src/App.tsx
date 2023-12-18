@@ -10,7 +10,6 @@ const App = () => {
 
       {!AuthToggle ? <AuthLayout /> : <GuestLayout />}
 
-
     </>
   )
 }
