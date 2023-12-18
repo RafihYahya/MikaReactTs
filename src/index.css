@@ -37,8 +37,10 @@
 
 #bgBase {
   background-image:  url(./assets/bg_background.jpg);
+  background-position: center center ;
   background-size: 225%;
   background-blend-mode:hard-light;
+  background-attachment: fixed;
 }
 
 #bgAnimaLog {
@@ -85,3 +87,27 @@
     }
   }
 }
+
+
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(236,72,153,0.15) transparent;
+ }
+ 
+ /* Works on Chrome, Edge, and Safari */
+ *::-webkit-scrollbar {
+  width: 8px;
+ }
+ 
+ *::-webkit-scrollbar-track {
+  background: rgb(236,72,153,0.15);;
+ }
+ *::-webkit-scrollbar-track {
+  background: transparent;  /* color of the tracking area */
+ }
+ *::-webkit-scrollbar-thumb {
+  background-color: rgb(236,72,153,0.15);
+  border-radius: 20px;
+ }
