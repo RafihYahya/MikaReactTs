@@ -14,7 +14,7 @@ function TabsComp() {
                 <div className=" group flex items-center  border-t-4 border-pink-600 rounded-md ">
                     <div className="    text-center  py-4  px-2 rounded-md text-pink-600 text-lg"><Heart size={32}/>
                     </div>
-                    <h1 className="transition-all duration-300 ease-in  text-center text-pink-600 text-lg ">Most Liked</h1>
+                    <h1 className="transition-all duration-300 ease-in  text-center text-pink-600 text-lg md:block hidden">Most Liked</h1>
                 </div>
                 <div className="cursor-pointer group flex items-center  hover:border-t-4 hover:border-pink-600 rounded-md ">
                     <div className="    text-center  py-4  px-2 rounded-md text-lg"><Fire size={32}/>
