@@ -49,6 +49,7 @@
   }
 }
 
+
 #bgAnimaLog {
   background-image: url(./assets/bg_background.jpg);
   animation: 75s ease-in-out 0s bgSizeChanger forwards;
