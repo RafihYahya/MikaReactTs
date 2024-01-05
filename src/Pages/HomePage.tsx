@@ -1,6 +1,7 @@
 import CreatePostComp from '../Components/CreatePostComp';
 import MiniProfileUserCardComp from '../Components/MiniProfileUserCardComp';
 import Navbar from '../Components/Navbar';
+import PostComp from '../Components/PostComp';
 import TabsComp from '../Components/TabsComp';
 
 //type Props = {a:number};
@@ -19,10 +20,13 @@ const HomePage = (): JSX.Element => {
             </div>
           <div className=' h-screen bg-[#EDE8E805] backdrop-blur-md rounded-md text-center overflow-auto  '>
             <CreatePostComp />
+            <PostComp/>
           </div>
         </div>
         <div id='sideLines' className='hidden md:block md:invisible lg:visible md:col-span-1 lg:col-span-2 h-[90.5%] bg-transparent lg:bg-[#ede8e80b] backdrop-blur-md rounded-md text-center'>
+          <div className='mt-8'>
           <MiniProfileUserCardComp/>
+          </div>
           <MiniProfileUserCardComp/>
           <MiniProfileUserCardComp/>
         </div>
