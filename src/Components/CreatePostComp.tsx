@@ -3,7 +3,7 @@ import { EnvelopeOpen } from "@phosphor-icons/react"
 
 function CreatePostComp() {
   return (
-    <div id="postCreation" className=" relative border-t-2 border-pink-600/75 flex items-start justify-between gap-4 mx-auto my-[5vh] bg-[#ede8e807] w-[80%] lg:w-[70%] h-[30vh] lg:h-[32vh] rounded-lg py-8 px-8">
+    <div id="postCreation" className=" relative border-t-2 border-pink-600/75 flex items-start justify-between gap-4 mx-auto my-[5vh] bg-[#ede8e807] w-[80%] lg:w-[70%] h-[30vh] lg:h-[32vh] rounded-lg py-8 px-8 translate-x-[-5%]">
       <div id="borderMaker" className="absolute  w-64 h-64 rounded-bl-md  bottom-0 left-0 border-l-2 border-b-2 border-pink-600/75"></div>
       <div id="borderMaker2" className="absolute  w-64 h-64 rounded-br-md  bottom-0 right-0 border-r-2 border-b-2 border-pink-600/75"></div>
       <div className="flex justify-center items-center flex-col gap-4">
