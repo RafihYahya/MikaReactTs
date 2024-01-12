@@ -150,3 +150,8 @@ caret-color: rgb(219 39 119 / 0.75);
   border-image: linear-gradient(to left, rgb(219 39 119 / 0.75) 5%, transparent 90%) 100% 1;
 
  }
+ #spliter{
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to right, rgb(219 39 119 / 0.75) 10%, transparent 100%) 100% 1;
+
+ }
