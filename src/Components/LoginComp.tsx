@@ -4,7 +4,7 @@ const RegisterComp = () => {
     <div className="w-full h-[85vh] my-10 sm:my-0 scale-[80%] lg:scale-[80%] 3xl:scale-100 ">
       <div className="max-w-[1500px] w-full h-full flex items-center mx-auto ">
         <div className="mx-auto max-w-lg scale-110 p-4 rounded-lg ">
-          <h1 className="uppercase text-center text-2xl font-bold text-violet-200 sm:text-3xl">
+          <h1 className="uppercase text-center text-2xl font-bold text-pink-200/80 sm:text-3xl">
             Welcome Back !
           </h1>
 
@@ -96,7 +96,7 @@ const RegisterComp = () => {
 
             <button
               type="submit"
-              className="transition-all duration-300 hover:text-violet-200 hover:bg-violet-950 text-md block w-full rounded-lg bg-violet-900 px-5 py-3  font-medium text-white"
+              className="transition-all duration-300 hover:text-violet-200 hover:bg-pink-600 text-md block w-full rounded-lg bg-pink-600/75 px-5 py-3  font-medium text-white"
             >
               Sign In
             </button>

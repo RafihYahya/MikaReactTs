@@ -8,7 +8,7 @@ const PostComp = () => {
         <div className="h-full w-full flex justify-center items-center flex-col gap-2">
           <div className="bg-[#ede8e820] rounded-full w-16 h-16 flex justify-center items-center"><Heart size={28} />
           </div>
-          <div className="bg-[#ede8e820] rounded-full w-16 h-16 flex justify-center items-center"><ThumbsUp size={28} /></div>
+          <div className="bg-[#ede8e820] rounded-full w-16 h-16 flex justify-center items-center "><ThumbsUp size={28} /></div>
           <div className="bg-[#ede8e820] rounded-full w-16 h-16 flex justify-center items-center"><ThumbsDown size={28} /></div>
         </div>
       </div>

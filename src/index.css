@@ -48,6 +48,12 @@
 
   }
 }
+@media screen and (max-width: 2080px){
+  #bgBase{
+    zoom: 95%;
+
+  }
+}
 
 textarea {
   overflow: auto;
@@ -62,6 +68,10 @@ caret-color: rgb(219 39 119 / 0.75);
 
 #bgAnimaLog {
   background-image: url(./assets/bg_background.jpg);
+  animation: 75s ease-in-out 0s bgSizeChanger forwards;
+  background-repeat: no-repeat;
+}
+#bgAnimaLog2 {
   animation: 75s ease-in-out 0s bgSizeChanger forwards;
   background-repeat: no-repeat;
 }
@@ -127,4 +137,16 @@ caret-color: rgb(219 39 119 / 0.75);
  *::-webkit-scrollbar-thumb {
   background-color: rgb(236,72,153,0.15);
   border-radius: 20px;
+ }
+
+
+ #borderMaker{
+ 
+  border-image: linear-gradient(to right, rgb(219 39 119 / 0.75) 5%, transparent 90%) 100% 1;
+
+ }
+ #borderMaker2{
+ 
+  border-image: linear-gradient(to left, rgb(219 39 119 / 0.75) 5%, transparent 90%) 100% 1;
+
  }
