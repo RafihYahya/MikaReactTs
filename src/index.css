@@ -36,22 +36,23 @@
 }
 
 #bgBase {
-  background-image:  url(./assets/bg_background.jpg);
-  background-position: center center ;
+  background-image: url(./assets/bg_background.jpg);
+  background-position: center center;
   background-size: 225%;
-  background-blend-mode:hard-light;
+  background-blend-mode: hard-light;
   background-attachment: fixed;
 }
-@media screen and (max-width: 1480px){
-  #bgBase{
-    zoom: 85%;
 
+
+
+@media screen and (min-width: 1600px) {
+  #bgBase {
+    zoom: 95%;
   }
 }
-@media screen and (max-width: 2080px){
-  #bgBase{
-    zoom: 95%;
-
+@media screen and (max-width: 1366px) {
+  #bgBase {
+    zoom: 80%;
   }
 }
 
@@ -62,8 +63,9 @@ textarea {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-caret-color: rgb(219 39 119 / 0.75);
-  resize: none; /*remove the resize handle on the bottom right*/
+  caret-color: rgb(219 39 119 / 0.75);
+  resize: none;
+  /*remove the resize handle on the bottom right*/
 }
 
 #bgAnimaLog {
@@ -71,10 +73,12 @@ caret-color: rgb(219 39 119 / 0.75);
   animation: 75s ease-in-out 0s bgSizeChanger forwards;
   background-repeat: no-repeat;
 }
+
 #bgAnimaLog2 {
   animation: 75s ease-in-out 0s bgSizeChanger forwards;
   background-repeat: no-repeat;
 }
+
 #bgAnimaLogBlend {
   background-image: url(./assets/bg_background.jpg);
   background-blend-mode: hard-light;
@@ -120,38 +124,44 @@ caret-color: rgb(219 39 119 / 0.75);
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgb(236,72,153,0.15) transparent;
- }
- 
- /* Works on Chrome, Edge, and Safari */
- *::-webkit-scrollbar {
+  scrollbar-color: rgb(236, 72, 153, 0.15) transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
   width: 8px;
- }
- 
- *::-webkit-scrollbar-track {
-  background: rgb(236,72,153,0.15);;
- }
- *::-webkit-scrollbar-track {
-  background: transparent;  /* color of the tracking area */
- }
- *::-webkit-scrollbar-thumb {
-  background-color: rgb(236,72,153,0.15);
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(236, 72, 153, 0.15);
+  ;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(236, 72, 153, 0.15);
   border-radius: 20px;
- }
+}
 
 
- #borderMaker{
- 
+#borderMaker {
+
   border-image: linear-gradient(to right, rgb(219 39 119 / 0.75) 5%, transparent 90%) 100% 1;
 
- }
- #borderMaker2{
- 
+}
+
+#borderMaker2 {
+
   border-image: linear-gradient(to left, rgb(219 39 119 / 0.75) 5%, transparent 90%) 100% 1;
 
- }
- #spliter{
+}
+
+#spliter {
   border-bottom: 2px solid;
   border-image: linear-gradient(to right, rgb(219 39 119 / 0.75) 10%, transparent 100%) 100% 1;
 
- }
+}
