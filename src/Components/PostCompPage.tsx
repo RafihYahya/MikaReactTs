@@ -1,4 +1,4 @@
-import { Chats, Heart, Share, ThumbsDown, ThumbsUp } from "@phosphor-icons/react"
+import { Heart, Share, ThumbsDown, ThumbsUp } from "@phosphor-icons/react"
 
 const PostCompPage = () => {
   return (
@@ -17,16 +17,12 @@ const PostCompPage = () => {
           <p className="text-left m-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, id velit! Rerum earum sapiente inventore esse repellat vitae aspernatur veniam tenetur velit, minima nulla eum quod blanditiis praesentium commodi dicta.</p>
         </div>
         <div className="w-full h-20 flex items-center justify-center gap-1">
-          <div className="bg-[#ede8e805] w-full h-full  rounded-sm flex items-center justify-center border-2 border-pink-600/50 uppercase text-md">
-            <div className="flex items-center justify-center gap-2 ">
-              <Chats size={32} />
-              <h2 >Comments</h2>
-            </div></div>
-          <div className="bg-[#ede8e805] w-[40%] h-full rounded-sm flex items-center justify-center border-2 border-pink-600/50 uppercase text-md"><div className="flex items-center justify-center gap-2 ">
+          
+          <div className="bg-[#ede8e805] w-[100%] h-full rounded-sm flex items-center justify-center border-2 border-pink-600/50 uppercase text-md"><div className="flex items-center justify-center gap-2 ">
               <Share size={32} />
               <h2 >Share</h2>
             </div>
-
+          
           </div>
 
         </div>

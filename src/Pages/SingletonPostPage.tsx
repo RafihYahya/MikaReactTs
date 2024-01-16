@@ -1,3 +1,4 @@
+import CommentBasicComp from '../Components/CommentBasicComp'
 import Navbar from '../Components/Navbar'
 import PostCompPage from '../Components/PostCompPage'
 
@@ -14,7 +15,14 @@ const SingletonPostPage = () => {
         <h1 id="spliter" className=''></h1>
 
         <PostCompPage/>
-
+        <h2 className='text-left text-lg text-pink-600/75 font-light'>COMMENTS</h2>
+        <h1 id="spliter2" className='mb-12'></h1>
+        <CommentBasicComp/>
+        <CommentBasicComp/>
+        <CommentBasicComp/>
+        <CommentBasicComp/>
+        <CommentBasicComp/>
+        <CommentBasicComp/>
         </div>
       </div>
       <div id='sideLines' className='hidden md:block md:invisible lg:visible md:col-span-1 lg:col-span-3 h-[95%] bg-transparent lg:bg-[#ede8e805] backdrop-blur-md rounded-md text-center'>

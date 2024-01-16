@@ -162,6 +162,11 @@ textarea {
 
 #spliter {
   border-bottom: 2px solid;
-  border-image: linear-gradient(to right, rgb(219 39 119 / 0.75) 10%, transparent 100%) 100% 1;
+  border-image: linear-gradient(to right, rgb(219 39 119 / 0.75) 20%, transparent 110%) 100% 1;
+
+}
+#spliter2 {
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to left, rgb(219 39 119 / 0.75) 20%, transparent 115%) 100% 1;
 
 }
