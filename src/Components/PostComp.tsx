@@ -13,7 +13,7 @@ const PostComp = () => {
         </div>
       </div>
       <div className="flex justify-between items-center flex-col h-full w-full">
-        <div className="bg-[#ede8e815] w-full h-full rounded-md mb-2 border-pink-600/75 border-t-2 ">
+        <div className="bg-[#ede8e80a] backdrop-blur-md w-full h-full rounded-md mb-2 border-pink-600/75 border-t-2 ">
           <p className="text-left m-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, id velit! Rerum earum sapiente inventore esse repellat vitae aspernatur veniam tenetur velit, minima nulla eum quod blanditiis praesentium commodi dicta.</p>
         </div>
         <div className="w-full h-20 flex items-center justify-center gap-1">

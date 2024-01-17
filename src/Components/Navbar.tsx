@@ -1,7 +1,9 @@
 import { Article, Bell, Binoculars, HouseSimple, MagnifyingGlass, SignIn, User } from "@phosphor-icons/react"
+import { useState } from "react"
 
-const Navbar = () => {
+const Navbar = ({ togglerset }: { togglerset: any }) => {
 
+  const [notifclicked, setnotifclicked] = useState(false)
   return (
 
     <div id='navbar' className='  w-full h-full '>
@@ -27,15 +29,17 @@ const Navbar = () => {
 
 
             </a> </li>
-            <li id='dashboard ' className='px-12  text-md transition-all duration-300 ease-in hover:scale-110 hover:text-pink-600  md:block hidden  '><a href=""><Bell size={32} />
+            <div className="relative">
+              <li id='Notifications' onClick={() => { togglerset(notifclicked); setnotifclicked(!notifclicked) }} className={` cursor-pointer relative px-12  text-md transition-all duration-300 ease-in hover:scale-110 ${!notifclicked? "hover:text-pink-600" : "text-pink-600"}  md:block hidden  `}><Bell size={32} />
 
 
-
-            </a> </li>
+              </li>
+              {/* bg-[#050505bb] */}
+            </div>
             <li id='dashboard ' className='px-12 text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden '><a href=""><User size={32} />
 
             </a> </li>
-            
+
           </ul>
 
           <ul className='flex items-center h-20 md:h-auto'>

@@ -5,18 +5,23 @@ import Navbar from '../Components/Navbar';
 import PostComp from '../Components/PostComp';
 import TabsComp from '../Components/TabsComp';
 import MainGroupSidelineCardComp from '../Components/MainGroupSidelineCardComp';
+import NotificationsCardComp from '../Components/NotificationsCardComp';
 
 //type Props = {a:number};
 
 const HomePage = (): JSX.Element => {
 
   const [ToolbarToggler, setToolbarToggler] = useState('');
+  const [NotifToggler, setNotifToggler] = useState('hidden');
+
   const mainCenterObj = document.getElementById('scrollable');
 
   const hideToolbarSelection = () => {
     setToolbarToggler('hidden');
   }
-
+  const toggleNotif2 = (e:boolean) => {
+    !e? setNotifToggler("block") : setNotifToggler("hidden");
+  }
 
 
   if (mainCenterObj) {
@@ -32,7 +37,7 @@ const HomePage = (): JSX.Element => {
   return (
 
     <>
-      <Navbar />
+      <Navbar  togglerset={toggleNotif2} />
       <div className=' pt-24 fixed overflow-hidden w-full h-full md:grid md:grid-cols-11  p-2  gap-2 lg:pt-24 md:pt-20 '>
         <div id='sideLines' className='py-4 px-2 md:block hidden  md:col-span-1 lg:col-span-2 h-[100%] 2xl:h-[95%] bg-transparent lg:bg-[#ede8e805] backdrop-blur-md rounded-sm text-center '>
           <MainGroupSidelineCardComp/>
@@ -40,7 +45,8 @@ const HomePage = (): JSX.Element => {
           <MainGroupSidelineCardComp/>
           <MainGroupSidelineCardComp/>
         </div>
-        <div id='mainCenter' className=' flex flex-col md:col-span-9 lg:col-span-7 gap-4  h-full '>
+        <div id='mainCenter' className='relative  flex flex-col md:col-span-9 lg:col-span-7 gap-4  h-full '>
+        <NotificationsCardComp props={NotifToggler}/>
           <div className={` ${ToolbarToggler} h-[10vh] bg-[#EDE8E805] backdrop-blur-sm rounded-md flex items-center justify-center `}>
             <TabsComp />
           </div>

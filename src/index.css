@@ -170,3 +170,8 @@ textarea {
   border-image: linear-gradient(to left, rgb(219 39 119 / 0.75) 20%, transparent 115%) 100% 1;
 
 }
+
+#notifCard {
+  z-index: 500 !important;
+
+}

@@ -7,7 +7,7 @@ const MiniProfileUserCardComp = () => {
       <div className="w-16 h-16 bg-[#EDE8E810] backdrop-blur-sm rounded-full border-l-2 border-r-2 border-pink-500/30"></div>
       <div>
         <h3 className="text-sm font-light  ">Miaw Profile</h3>
-        <h4 className="text-xs text-green-400">Online</h4>
+        <h4 className="text-xs text-green-500">Online</h4>
       </div>
       <div className="text-pink-600/75"><ChatsCircle size={32} />
 
