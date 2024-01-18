@@ -71,6 +71,16 @@ textarea {
   resize: none;
   /*remove the resize handle on the bottom right*/
 }
+input {
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  caret-color: rgb(219 39 119 / 0.75);
+  resize: none;
+}
 
 #bgAnimaLog {
   background-image: url(./assets/bg_background.jpg);
