@@ -53,7 +53,7 @@ const HomePage = (): JSX.Element => {
     <>
       <Navbar togglerset={toggleNotif3} togglerset2={toggleSearch} />
       <div className=' pt-24 fixed overflow-hidden w-full h-full md:grid md:grid-cols-11  p-2  gap-2 lg:pt-24 md:pt-20 '>
-        <div id='sideLines' className='py-4 px-2 md:block hidden  md:col-span-1 lg:col-span-2 h-[100%] 2xl:h-[95%] bg-transparent lg:bg-[#ede8e805] backdrop-blur-md rounded-sm text-center '>
+        <div id='sideLines' className='py-4 px-2 md:block md:invisible lg:visible hidden  md:col-span-1 lg:col-span-2 h-[100%] 2xl:h-[95%] bg-transparent lg:bg-[#ede8e805] backdrop-blur-md rounded-sm text-center '>
           <MainGroupSidelineCardComp />
           <MainGroupSidelineCardComp />
           <MainGroupSidelineCardComp />
