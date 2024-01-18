@@ -1,13 +1,37 @@
 import { CaretLeft, CaretRight, ChartLine, Gear } from '@phosphor-icons/react'
 import Navbar from '../Components/Navbar'
 import PostListingComp from '../Components/PostListingComp'
+import { useState } from 'react';
+import NotificationsCardCompUser from '../Components/NotificationsCardCompUser';
+import SearchCardCompUser from '../Components/SearchCardCompUser';
 
 const UserPage = () => {
+
+  const [NotifToggler, setNotifToggler] = useState('hidden');
+  const [SearchToggler, setSearchToggler] = useState('hidden');
+
+  
+  const toggleSearch = (e:boolean) => {
+    !e? setSearchToggler("block") : setSearchToggler("hidden");
+    if(NotifToggler == 'block'){
+      setNotifToggler('hidden')
+    }
+  }
+
+  const toggleNotif3 = (e:boolean) => {
+    !e? setNotifToggler("block") : setNotifToggler("hidden");
+    if(SearchToggler == 'block'){
+      setSearchToggler('hidden')
+
+    }
+  }
   return (
     <>
-      <Navbar />
-      <div className='pt-[6%] p-10 flex items-center justify-between gap-8 w-full h-[125vh] max-w-[1650px] mx-auto'>
-        <div className=' w-full h-full flex justify-start items-center flex-col gap-10 pt-10 mr-[4%] ml-[-4%]'>
+      <Navbar  togglerset={toggleNotif3} togglerset2={toggleSearch}  />
+      <div className='relative pt-[20%] lg:pt-[6%] p-10 flex items-center justify-between gap-[30vh] lg:gap-8 w-full h-[135vh] lg:h-[125vh] max-w-[1650px] mx-auto lg:flex-row flex-col'>
+      <NotificationsCardCompUser  props={NotifToggler}/>
+      <SearchCardCompUser props={SearchToggler}/>
+        <div className=' w-full h-full flex justify-start items-center flex-col gap-10 pt-10 lg:mr-[4%] lg:ml-[-4%]'>
           <div className='  flex justify-center items-center gap-4'>
             <div className='flex justify-center items-center flex-col gap-2 '>
               <div className='w-14 h-14 bg-[#EDE8E820] backdrop-blur-sm border-2 border-pink-600/20 rounded-full mb-2'></div>
@@ -38,7 +62,7 @@ const UserPage = () => {
             </div>
           </div>
         </div>
-        <div className='  w-full h-full flex justify-center items-center flex-col'>
+        <div className='  w-full h-full flex justify-center items-center flex-col '>
           <div className='w-full h-24 flex justify-between items-center mb-2'>
             <div className='hover:text-pink-600 cursor-pointer'><CaretLeft size={36} />
             </div>

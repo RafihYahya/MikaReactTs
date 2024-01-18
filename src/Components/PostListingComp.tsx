@@ -19,13 +19,13 @@ const PostListingComp = () => {
           
           <div className="w-full h-12 bg-[#EDE8E80e] rounded-full flex justify-center items-center gap-2 p-4">
             <div className="text-red-500/75"><ThumbsDown size={25} /></div>
-            <div>13<span className="text-red-500/75  uppercase font-bold">k</span></div>
+            <div>72<span className="text-red-500/75  uppercase font-bold">k</span></div>
           </div>
           <div className="w-full h-12 bg-[#EDE8E80e] rounded-full flex justify-center items-center gap-2 p-4">
             <div className="text-pink-500/75"><Heart size={25} />
 
 </div>
-            <div>33<span className="text-pink-500/75 font-bold uppercase">k</span></div>
+            <div>18<span className="text-pink-500/75 font-bold uppercase">k</span></div>
           </div>
         </div>
       </div>

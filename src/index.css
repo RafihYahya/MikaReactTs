@@ -43,7 +43,11 @@
   background-attachment: fixed;
 }
 
-
+@media screen and (max-width: 768px) {
+  #bgBase {
+    background-size: 375%;
+  }
+}
 
 @media screen and (min-width: 1600px) {
   #bgBase {
