@@ -60,8 +60,8 @@ const HomePage = (): JSX.Element => {
           <MainGroupSidelineCardComp />
         </div>
         <div id='mainCenter' className='relative  flex flex-col md:col-span-9 lg:col-span-7 gap-4  h-full '>
-          <SearchCardComp props={SearchToggler} />
-          <NotificationsCardComp props={NotifToggler} />
+          <SearchCardComp props={SearchToggler} position={'left-[25%] 2xl:left-[17%] top-[-1%]'} />
+          <NotificationsCardComp props={NotifToggler} position={'left-[50%]'}/>
           <div className={` ${ToolbarToggler} h-[10vh] bg-[#EDE8E805] backdrop-blur-sm rounded-md flex items-center justify-center `}>
             <TabsComp />
           </div>

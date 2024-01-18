@@ -1,10 +1,11 @@
 import LoginComp from '../Components/LoginComp'
-import Navbar from '../Components/Navbar'
+import NavbarGuest from '../Components/NavbarGuest'
 
 const LoginPage = () => {
   return (
     <>
-    <Navbar />
+    <NavbarGuest />
+    <div className='md:h-[20vh] lg:h-[15vh] 2xl:h-[5vh]'></div>
     <LoginComp/>
     </>
   )

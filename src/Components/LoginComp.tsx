@@ -1,7 +1,7 @@
 
 const RegisterComp = () => {
   return (
-    <div className="w-full h-[85vh] my-10 sm:my-0 scale-[80%] lg:scale-[80%] 3xl:scale-100 ">
+    <div className="w-full h-[85vh] my-10 sm:my-0 md:scale-100 scale-75 md:pt-0 pt-[30vh] lg:scale-[90%] 3xl:scale-100 ">
       <div className="max-w-[1500px] w-full h-full flex items-center mx-auto ">
         <div className="mx-auto max-w-lg scale-110 p-4 rounded-lg ">
           <h1 className="uppercase text-center text-2xl font-bold text-pink-200/80 sm:text-3xl">

@@ -2,8 +2,8 @@ import { CaretLeft, CaretRight, ChartLine, Gear } from '@phosphor-icons/react'
 import Navbar from '../Components/Navbar'
 import PostListingComp from '../Components/PostListingComp'
 import { useState } from 'react';
-import NotificationsCardCompUser from '../Components/NotificationsCardCompUser';
-import SearchCardCompUser from '../Components/SearchCardCompUser';
+import SearchCardComp from '../Components/SearchCardComp';
+import NotificationsCardComp from '../Components/NotificationsCardComp';
 
 const UserPage = () => {
 
@@ -29,8 +29,8 @@ const UserPage = () => {
     <>
       <Navbar  togglerset={toggleNotif3} togglerset2={toggleSearch}  />
       <div className='relative pt-[20%] lg:pt-[6%] p-10 flex items-center justify-between gap-[30vh] lg:gap-8 w-full h-[135vh] lg:h-[125vh] max-w-[1650px] mx-auto lg:flex-row flex-col'>
-      <NotificationsCardCompUser  props={NotifToggler}/>
-      <SearchCardCompUser props={SearchToggler}/>
+      <NotificationsCardComp  props={NotifToggler} position={'left-[50%] top-[7%]'}/>
+      <SearchCardComp props={SearchToggler} position={'left-[32%] 2xl:left-[25%] top-[7%]'}/>
         <div className=' w-full h-full flex justify-start items-center flex-col gap-10 pt-10 lg:mr-[4%] lg:ml-[-4%]'>
           <div className='  flex justify-center items-center gap-4'>
             <div className='flex justify-center items-center flex-col gap-2 '>

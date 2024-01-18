@@ -1,8 +1,8 @@
 import {  MagnifyingGlass } from "@phosphor-icons/react"
 
-const SearchCardComp = ({ props }: { props: string }) => {
+const SearchCardComp = ({ props,position }: { props: string,position:string }) => {
   return (
-    <div id="notifCard" className={`z-100 ${props} absolute  bg-[#EDE8E805] backdrop-blur-md border-b-2 border-t-2  border-pink-600/75 w-[45vw] h-[85vh]  rounded-md left-[25%] 2xl:left-[17%] top-[-1%] flex items-center justify-between flex-col py-4 `}>
+    <div id="notifCard" className={`z-100 ${props} absolute  bg-[#EDE8E805] backdrop-blur-md border-b-2 border-t-2  border-pink-600/75 w-[45vw] h-[85vh]  rounded-md ${position} flex items-center justify-between flex-col py-4 `}>
       <div className="flex justify-center items-center w-full p-4 flex-col gap-2 ">
        
       </div>
