@@ -2,8 +2,8 @@ import { Heart, ThumbsDown, ThumbsUp } from "@phosphor-icons/react"
 
 const PostListingComp = () => {
   return (
-    <div className="transition-transform duration-200 ease-in-out  w-full h-48  mb-8 rounded-md backdrop-blur-md flex items-center justify-between  gap-4  p-4 border-0  border-pink-600/75 hover:border-t-2 hover:border-pink-600/75">
-      <div className="flex items-center justify-center flex-col gap-3">
+    <div id="postlistingFrame" className="border-t-2 border-black hover:border-pink-600 transition-all duration-200 ease-in-out  w-full h-48  mb-8 rounded-md backdrop-blur-md flex items-center justify-between  gap-4  p-4 ">
+      <div className="flex items-center justify-center flex-col gap-3 ">
         <div className="w-24 h-24 bg-[#EDE8E810] rounded-full border-2 border-pink-600/20"></div>
         <h3 className="text-sm">Miaw</h3>
       </div>

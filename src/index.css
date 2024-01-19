@@ -100,6 +100,21 @@ input {
   background-repeat: no-repeat;
 }
 
+#notifCard{
+  animation-duration: 500ms;
+  animation-name: opacityfadeCard;
+}
+
+
+
+@keyframes opacityfadeCard{
+  from{
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
 
 @keyframes bgSizeChanger {
   from {

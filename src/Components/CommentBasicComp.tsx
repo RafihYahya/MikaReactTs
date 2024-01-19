@@ -2,7 +2,7 @@ import { Chat, Heart, ThumbsDown, ThumbsUp } from "@phosphor-icons/react"
 
 const CommentBasicComp = () => {
   return (
-    <div className="flex items-center justify-center flex-col gap-1 my-14">
+    <div className="flex items-center justify-center flex-col gap-1 my-20">
       <div className=" h-36 w-full  rounded-md flex justify-center items-start gap-2 p-2">
         <div className="flex items-center justify-center flex-col gap-2">
           <div className="rounded-full bg-[#ede8e815] w-24 h-24"></div>
@@ -17,7 +17,7 @@ const CommentBasicComp = () => {
           <div className="rounded-full bg-[#ede8e80a] backdrop-blur-md w-10 h-10 flex items-center justify-center"><ThumbsDown size={20} /></div>
         </div>
       </div>
-      <div className="bg-[#ede8e80a] backdrop-blur-md h-14 w-[95%] rounded-lg flex items-center justify-center">
+      <div className="bg-[#ede8e80a] backdrop-blur-md h-14 w-[94%] rounded-lg flex items-center justify-center">
         <div className="flex items-center justify-center gap-2">
           <Chat size={28} />
           <h3 className="text-sm uppercase">Comment</h3>
