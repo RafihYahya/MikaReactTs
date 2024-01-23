@@ -65,7 +65,7 @@ const HomePage = (): JSX.Element => {
           <div className={` ${ToolbarToggler} h-[10vh] bg-[#EDE8E805] backdrop-blur-sm rounded-md flex items-center justify-center `}>
             <TabsComp />
           </div>
-          <div id="scrollable" className=' h-screen bg-[#EDE8E805] backdrop-blur-md rounded-md text-center overflow-auto  '>
+          <div id="scrollable" className=' h-[125vh] lg:h-[120vh] bg-[#EDE8E805] backdrop-blur-md rounded-md text-center overflow-auto  '>
             <CreatePostComp />
             <div className='h-[5vh] lg:h-[10vh]'></div>
             <h1 id="spliter" className='text-left ml-2 lg:ml-[5%] text-2xl font-light uppercase  text-pink-600/75 tracking-widest	  w-[90%]'>P<span className='text-pink-600/75 tracking-wider'>osts</span></h1>

@@ -2,7 +2,7 @@ import { Chats, Heart, Share, ThumbsDown, ThumbsUp } from "@phosphor-icons/react
 
 const PostComp = () => {
   return (
-    <div className=" w-[93%] md:w-[90%] lg:w-[75%] lg:h-[39%] 2xl:h-[31.5%] h-[40%] md:h-[30%]  mx-auto rounded-md flex justify-between items-center lg:my-[10%] mt-[20%] mb-[50%]  md:mt-[20%] md:mb-[20%] md:p-4 md:mr-[7%] lg:mr-[18%] md:flex-row flex-col gap-4 md:gap-0">
+    <div className=" w-[93%] md:w-[90%] lg:w-[75%] lg:h-[33%] 2xl:h-[26%] h-[30%] md:h-[24%]  mx-auto rounded-md flex justify-between items-center lg:my-[10%] mt-[20%] mb-[50%]  md:mt-[20%] md:mb-[20%] md:p-4 md:mr-[7%] lg:mr-[18%] md:flex-row flex-col gap-4 md:gap-0">
       <div className=" md:w-[15%] md:h-full w-8 h-8 rounded-md m-2 flex items-center justify-between md:flex-col flex-row  ">
         <div className="bg-[#ede8e820] max-h-24 h-full w-20 md:block hidden  mb-2 rounded-full border-2 border-pink-600/75"></div>
         <div className="h-full w-full flex justify-center items-center md:flex-col flex-row gap-20 md:gap-2 ">
