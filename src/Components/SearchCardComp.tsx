@@ -9,7 +9,7 @@ const SearchCardComp = ({ props, position }: { props: string, position: string }
           <input className="group font-light text-left focus:border-2 focus:border-pink-600/50 p-4 text-sm mt-8 w-[70%] h-14 bg-[#EDE8E815] backdrop-blur-md rounded-md" type="text" />
           <MagnifyingGlass className="mt-8 " size={32} />
         </div>
-        <div className="h-10"></div>
+        <div className="h-4 2xl:h-10"></div>
        <SmallFlexComp/>
        <SmallFlexComp/>
        <SmallFlexComp/>
