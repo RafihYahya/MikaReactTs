@@ -3,7 +3,7 @@ import SmallFlexComp from "./smallFlexComp"
 
 const SearchCardComp = ({ props, position }: { props: string, position: string }) => {
   return (
-    <div id="notifCard" className={`z-100 ${props} absolute  bg-[#EDE8E805] backdrop-blur-lg border-b-2 border-t-2  border-pink-600/75 w-[45vw] h-[85vh]  rounded-md ${position} flex items-center justify-between flex-col py-4 `}>
+    <div id="notifCard" className={`z-100 ${props} absolute  bg-[#EDE8E805] backdrop-blur-lg border-b-2 border-t-2  border-pink-600/75 w-[50vw] 2xl:w-[45vw] h-[95vh] 2xl:h-[85vh]  rounded-md ${position} flex items-center justify-between flex-col py-4 `}>
       <div className="flex justify-center items-center w-full p-4 flex-col gap-2 ">
         <div className="w-full flex items-center   justify-center gap-2 ">
           <input className="group font-light text-left focus:border-2 focus:border-pink-600/50 p-4 text-sm mt-8 w-[70%] h-14 bg-[#EDE8E815] backdrop-blur-md rounded-md" type="text" />

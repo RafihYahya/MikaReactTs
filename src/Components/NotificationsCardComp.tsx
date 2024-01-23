@@ -2,7 +2,7 @@ import { BellRinging, Notification } from "@phosphor-icons/react"
 
 const NotificationsCardComp = ({ props,position }: { props: string,position:string }) => {
   return (
-    <div id="notifCard" className={`z-100 ${props} absolute  bg-[#EDE8E805] backdrop-blur-lg border-b-2 border-t-2  border-pink-600/75 w-[35vw] 2xl:w-[30vw] h-[85vh] 2xl:h-[75vh] rounded-md ${position} flex items-center justify-between flex-col py-4 `}>
+    <div id="notifCard" className={`z-100 ${props} absolute  bg-[#EDE8E805] backdrop-blur-lg border-b-2 border-t-2  border-pink-600/75 w-[44vw] 2xl:w-[30vw] h-[90vh] 2xl:h-[75vh] rounded-md ${position} flex items-center justify-between flex-col py-4 `}>
       <div className="flex justify-center items-center w-full p-4 flex-col gap-2 ">
         <div className="w-full h-20 backdrop-blur-md bg-[#EDE8E80a] rounded-md flex items-center justify-between p-4">
           <p className="2xl:w-[90%] w-[85%] text-sm"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum delectus minima illo corporis quos</p>

@@ -1,4 +1,4 @@
-import { Article, Bell, Binoculars, HouseSimple, MagnifyingGlass, SignIn, User } from "@phosphor-icons/react"
+import { Article, Bell, Binoculars, HouseSimple, MagnifyingGlass, NavigationArrow, SignIn, User } from "@phosphor-icons/react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
@@ -66,7 +66,9 @@ const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any
             <li className=' text-md px-4  hover:font-bold transition-all duration-300 ease-in hover:scale-110  hover:text-pink-600  md:block hidden  '><a href=""><Article size={32} />
 
             </a></li>
-            <li className=' text-md px-4  hover:font-bold transition-all duration-300 ease-in hover:scale-110  hover:text-pink-600  block md:hidden  '><a href=""><Article size={32} />
+            <li className=' text-md px-4  hover:font-bold transition-all duration-300 ease-in hover:scale-110  hover:text-pink-600  block md:hidden  '><a href="">
+            <NavigationArrow size={32} />
+
 
             </a></li>
           </ul>
