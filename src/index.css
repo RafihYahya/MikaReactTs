@@ -49,14 +49,19 @@
   }
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1850px) {
   #bgBase {
     zoom: 95%;
   }
 }
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1840px) {
   #bgBase {
     zoom: 70%;
+  }
+}
+@media screen and (max-width: 1300px) {
+  #bgBase {
+    zoom: 65%;
   }
 }
 
