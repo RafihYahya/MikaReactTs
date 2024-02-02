@@ -56,12 +56,12 @@
 }
 @media screen and (max-width: 1840px) {
   #bgBase {
-    zoom: 70%;
+    zoom: 60%;
   }
 }
 @media screen and (max-width: 1200px) {
   #bgBase {
-    zoom: 60%;
+    zoom: 50%;
   }
 }
 

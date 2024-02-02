@@ -24,7 +24,7 @@ const App = () => {
   return (
     <>
 
-      <div id='MainPageFade'><AuthLayout /></div>
+      <div id='MainPageFade' className=''><AuthLayout /></div>
 
 
     </>

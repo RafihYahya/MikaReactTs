@@ -4,7 +4,7 @@ const PostComp = () => {
   return (
     <div className=" w-[93%] md:w-[90%] lg:w-[75%] lg:h-[33%] 2xl:min-h-[26%] 2xl:h-auto h-[30%] md:h-[24%]  mx-auto rounded-md flex justify-between items-center lg:my-[10%] mt-[20%] mb-[50%]  md:mt-[20%] md:mb-[20%] md:p-4 md:mr-[7%] lg:mr-[18%] md:flex-row flex-col gap-4 md:gap-0">
       <div className=" md:w-[15%] md:h-full w-8 h-8 rounded-md m-2 flex items-center justify-between md:flex-col flex-row  ">
-        <div className="bg-[#ede8e820] max-h-24 h-20 w-20 md:block hidden  mb-2 rounded-full border-2 border-pink-600/75"></div>
+        <div className="bg-[#ede8e820] max-h-24 2xl:h-20 h-20 lg:h-28 w-20 md:block hidden  mb-2 rounded-full border-2 border-pink-600/75"></div>
         <div className="h-full w-full flex justify-center items-center md:flex-col flex-row gap-20 md:gap-2 ">
           <div className="bg-[#ede8e815] backdrop-blur-md rounded-full w-14 h-14 flex justify-center items-center p-4 md:p-0 hover:text-pink-600/75 transition-colors duration-300 ease-in-out"><Heart size={28} />
           </div>
