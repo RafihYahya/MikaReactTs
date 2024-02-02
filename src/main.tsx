@@ -6,6 +6,8 @@ import {
   createBrowserRouter,
 
 } from "react-router-dom";
+import ContextProvider from './Context/ContextProvider.tsx';
+
 
 
 const router = createBrowserRouter([
@@ -16,6 +18,8 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
+  <ContextProvider>
+    <RouterProvider router={router} />
+  </ContextProvider>
 
-  <RouterProvider router={router} />
 )

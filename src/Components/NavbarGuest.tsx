@@ -1,4 +1,4 @@
-import { Article, Binoculars, HouseSimple, SignIn, User } from "@phosphor-icons/react"
+import { Article, Binoculars, SignIn } from "@phosphor-icons/react"
 import { Link } from "react-router-dom"
 
 const NavbarGuest = () => {
@@ -19,28 +19,22 @@ const NavbarGuest = () => {
           </ul>
 
           <ul className="flex items-center  ">
-            <li id='home' className='px-12  text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden  '><Link to="/" ><HouseSimple size={32} />
-
-            </Link> </li>
-            <li id='dashboard ' className='px-12  text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden '><a href=""><Binoculars size={32} />
-
-            </a> </li>
             
             
-            <li id='user' className='px-12 text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden '> <Link to="/user" ><User size={32} /></Link> </li>
+            
+            
+            <li id='user' className='px-12 text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden '> <Link to="/extra" ><Binoculars size={32} /></Link> </li>
 
           </ul>
 
           <ul className='flex items-center h-20 md:h-auto'>
-            <li className=' text-md px-4  hover:font-bold  transition-all duration-300 ease-in hover:scale-110   hover:text-pink-600  md:block hidden  '><a href=""><SignIn size={32} />
+            <li className=' text-md px-4  hover:font-bold  transition-all duration-300 ease-in hover:scale-110   hover:text-pink-600  md:block hidden  '><Link to="/login"><SignIn size={32} />
 
-            </a></li>
-            <li className=' text-md px-4  hover:font-bold transition-all duration-300 ease-in hover:scale-110  hover:text-pink-600  md:block hidden  '><a href=""><Article size={32} />
+            </Link></li>
+            <li className=' text-md px-4  hover:font-bold transition-all duration-300 ease-in hover:scale-110  hover:text-pink-600  md:block hidden  '><Link to="/register"><Article size={32} />
 
-            </a></li>
-            <li className=' text-md px-4  hover:font-bold transition-all duration-300 ease-in hover:scale-110  hover:text-pink-600  block md:hidden  '><a href=""><Article size={32} />
-
-            </a></li>
+            </Link></li>
+            
           </ul>
 
 

@@ -1,14 +1,31 @@
-import { useState } from 'react';
-import GuestLayout from './Layouts/GuestLayout'
 import AuthLayout from './Layouts/AuthLayout';
+import { useStateContext } from './Context/ContextProvider';
+import { useEffect } from 'react';
+import { getAuthTokenFromServer } from './ApiUtils';
 
 
 const App = () => {
-  const [AuthToggle] = useState<boolean>(false);
+
+  const {  setAuthToken, AuthToken, setIsAuth } = useStateContext();
+  const AsyncWrapper = async () => {
+    let Temp = await getAuthTokenFromServer();
+    console.log(AuthToken)
+    setAuthToken(Temp);
+    console.log(AuthToken)
+    AuthToken == 'Empty' ? setIsAuth(false) : setIsAuth(true);
+
+  }
+  useEffect(() => {
+    AsyncWrapper();
+
+
+  }, [AuthToken])
+
   return (
     <>
 
-      {!AuthToggle ? <AuthLayout /> : <GuestLayout />}
+      <div id='MainPageFade'><AuthLayout /></div>
+
 
     </>
   )

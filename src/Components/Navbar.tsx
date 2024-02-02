@@ -1,6 +1,8 @@
-import { Article, Bell, Binoculars, HouseSimple, MagnifyingGlass, NavigationArrow, SignIn, User } from "@phosphor-icons/react"
+import { Bell, Binoculars, HouseSimple, MagnifyingGlass, SignIn, User } from "@phosphor-icons/react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { useStateContext } from "../Context/ContextProvider"
+//import { useStateContext } from "../Context/ContextProvider"
 
 const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any }) => {
 
@@ -22,6 +24,8 @@ const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any
       setsearchclicked(false)
     }
   }
+  const { setIsAuth } = useStateContext();
+
 
   return (
 
@@ -60,17 +64,10 @@ const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any
           </ul>
 
           <ul className='flex items-center h-20 md:h-auto'>
-            <li className=' text-md px-4  hover:font-bold  transition-all duration-300 ease-in hover:scale-110   hover:text-pink-600  md:block hidden  '><a href=""><SignIn size={32} />
+            <li onClick={() => { setIsAuth(false),localStorage.setItem('Token','Empty') }} className=' text-md px-4  hover:font-bold  transition-all duration-300 ease-in hover:scale-110   hover:text-pink-600  md:block hidden  '><Link to="/login"><SignIn size={32} />
 
-            </a></li>
-            <li className=' text-md px-4  hover:font-bold transition-all duration-300 ease-in hover:scale-110  hover:text-pink-600  md:block hidden  '><a href=""><Article size={32} />
-
-            </a></li>
-            <li className=' text-md px-4  hover:font-bold transition-all duration-300 ease-in hover:scale-110  hover:text-pink-600  block md:hidden  '><a href="">
-            <NavigationArrow size={32} />
-
-
-            </a></li>
+            </Link></li>
+            <li className="2xl:w-12"></li>
           </ul>
 
 

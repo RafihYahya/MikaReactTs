@@ -114,6 +114,11 @@ input {
   animation-duration: 1000ms;
   animation-name: opacityfadeCard;
 }
+#MainPageFade{
+  animation-duration: 1000ms;
+  animation-timing-function: ease-in-out;
+  animation-name: opacityfadeCard;
+}
 
 
 @keyframes opacityfadeCard{
