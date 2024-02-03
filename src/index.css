@@ -218,3 +218,7 @@ input {
   z-index: 500 !important;
 
 }
+
+ li .active {
+  color: rgb(219 39 119);
+}

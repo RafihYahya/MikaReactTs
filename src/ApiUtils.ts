@@ -1,4 +1,7 @@
 import axios from "axios"
+import { ApiInfo } from "./ConstantsGlobal";
+
+
 
 export const checkIfTokenExist = () => {
     if (localStorage.getItem('Token')) {
@@ -12,7 +15,7 @@ export const ApiCallGetToken = async () => {
 
     await axios.get("https://jsonplaceholder.typicode.com/posts/1").then((response) => {
         if(!Object.is(response.data,null)){
-            localStorage.setItem('Token', response.data.title)
+            localStorage.setItem('Token','Empty')
             
         }
         else{
@@ -34,4 +37,12 @@ export const getAuthTokenFromServer = () => {
         return Token
     }
 }
+
+export const testApi = async () => {
+
+    await axios.get(`${ApiInfo.server}:${ApiInfo.port}/api/whoami`).then((response) => {
+        console.log(response.data)
+    })
+}
+ 
 

@@ -1,5 +1,28 @@
+import axios from "axios";
+import { ApiInfo } from "../ConstantsGlobal";
+import { useNavigate } from "react-router-dom";
+import { useStateContext } from "../Context/ContextProvider";
+import { useState } from "react";
 
 const RegisterComp = () => {
+  const [Errorhandler, setErrorhandler] = useState(null);
+  const [InputValue, setInputValue] = useState({
+    email:'Enter Email',
+    password:'Enter Password',
+  });
+  const navigate = useNavigate();
+  const { setAuthToken } = useStateContext();
+
+  const LoginApiRequest = async (email: string | Blob, password: string | Blob) => {
+    const form = new FormData();
+    form.append('email', email);
+    form.append('password', password);
+    await axios.post(`${ApiInfo.server}:${ApiInfo.port}/api/login`, form).then((response) => {
+      setAuthToken(response.data.data.token);
+      localStorage.setItem('Token', response.data.data.token);
+      return navigate("/");
+    }).catch(e => setErrorhandler(e.toJSON()));
+  }
   return (
     <div className="w-full h-[85vh] my-10 sm:my-0 md:scale-100 scale-75 md:pt-0 pt-[30vh] lg:scale-[90%] 3xl:scale-100 ">
       <div className="max-w-[1500px] w-full h-full flex items-center mx-auto ">
@@ -14,8 +37,10 @@ const RegisterComp = () => {
 
           <form
             action=""
-            className="   mb-0  space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
+            className="   mb-0  space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8 relative"
           >
+            <p onClick={() => console.log(Errorhandler)} className={Object.is(Errorhandler, null) ? "hidden" : "cursor-default lg:translate-y-[-10px] text-md uppercase text-center text-black p-4  rounded-md bg-red-500/60"}>Wrong Credentials</p>
+
             <p className="text-center text-lg font-medium">
               Sign In to your account
             </p>
@@ -33,7 +58,8 @@ const RegisterComp = () => {
                 <input
                   type="email"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c]"
-                  placeholder="Enter email"
+                  onChange={e =>  setInputValue({...InputValue,email:e.target.value})}
+                  placeholder={InputValue.email}
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -64,7 +90,8 @@ const RegisterComp = () => {
                 <input
                   type="password"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c]"
-                  placeholder="Enter password"
+                  onChange={e =>  setInputValue({...InputValue,password:e.target.value})}
+                  placeholder={InputValue.password}
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -94,12 +121,12 @@ const RegisterComp = () => {
 
             </div>
 
-            <button
-              type="submit"
-              className="transition-all duration-300 hover:text-violet-200 hover:bg-pink-600 text-md block w-full rounded-lg bg-pink-600/75 px-5 py-3  font-medium text-white"
+            <div
+              onClick={() => { LoginApiRequest(InputValue.email, InputValue.password) }}
+              className=" cursor-pointer text-center transition-all duration-300 hover:text-violet-200 hover:bg-pink-600 text-md block w-full rounded-lg bg-pink-600/75 px-5 py-3  font-medium text-white"
             >
               Sign In
-            </button>
+            </div>
 
             <p className="text-center text-sm text-gray-500">
               You Don't Have An Account ?

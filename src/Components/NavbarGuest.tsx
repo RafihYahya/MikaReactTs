@@ -1,5 +1,5 @@
 import { Article, Binoculars, SignIn } from "@phosphor-icons/react"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 const NavbarGuest = () => {
 
@@ -28,12 +28,12 @@ const NavbarGuest = () => {
           </ul>
 
           <ul className='flex items-center h-20 md:h-auto'>
-            <li className=' text-md px-4  hover:font-bold  transition-all duration-300 ease-in hover:scale-110   hover:text-pink-600  md:block hidden  '><Link to="/login"><SignIn size={32} />
+            <li className=' text-md px-4  hover:font-bold  transition-all duration-300 ease-in hover:scale-110   hover:text-pink-600  md:block hidden  '><NavLink to="/login"><SignIn size={32} />
 
-            </Link></li>
-            <li className=' text-md px-4  hover:font-bold transition-all duration-300 ease-in hover:scale-110  hover:text-pink-600  md:block hidden  '><Link to="/register"><Article size={32} />
+            </NavLink></li>
+            <li className=' text-md px-4  hover:font-bold transition-all duration-300 ease-in hover:scale-110  hover:text-pink-600  md:block hidden  '><NavLink to="/register"><Article size={32} />
 
-            </Link></li>
+            </NavLink></li>
             
           </ul>
 

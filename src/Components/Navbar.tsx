@@ -1,6 +1,6 @@
 import { Bell, Binoculars, HouseSimple, MagnifyingGlass, SignIn, User } from "@phosphor-icons/react"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { useStateContext } from "../Context/ContextProvider"
 //import { useStateContext } from "../Context/ContextProvider"
 
@@ -41,9 +41,9 @@ const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any
           </ul>
 
           <ul className="flex items-center  ">
-            <li id='home' className='px-12  text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden  '><Link to="/" ><HouseSimple size={32} />
+            <li id='home' className='px-12  text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden  '><NavLink id="house" to="/" ><HouseSimple size={32} />
 
-            </Link> </li>
+            </NavLink > </li>
             <li id='dashboard ' className='px-12  text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden '><a href=""><Binoculars size={32} />
 
             </a> </li>
@@ -60,8 +60,8 @@ const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any
               {/* bg-[#050505bb] */}
             </div>
             <li id='user' className='px-12 text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden '>
-              <Link to="/user" ><User size={32} />
-              </Link>
+              <NavLink to="/user" ><User size={32} />
+              </NavLink>
             </li>
 
           </ul>
