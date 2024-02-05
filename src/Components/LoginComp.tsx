@@ -22,11 +22,12 @@ const RegisterComp = () => {
       localStorage.setItem('Token', response.data.data.token);
       return navigate("/");
     }).catch(e => setErrorhandler(e.toJSON()));
+    
   }
   return (
-    <div className="w-full h-[85vh] my-10 sm:my-0 md:scale-100 scale-75 md:pt-0 pt-[30vh] lg:scale-[90%] 3xl:scale-100 ">
-      <div className="max-w-[1500px] w-full h-full flex items-center mx-auto ">
-        <div className="mx-auto max-w-lg scale-110 p-4 rounded-lg ">
+    <div className="  sm:scale-75 w-full h-[85vh] my-10 sm:my-0 md:scale-100  md:pt-0 pt-[50vh] lg:scale-[90%] 3xl:scale-100 ">
+      <div className=" max-w-[1500px] w-full h-full flex items-center mx-auto ">
+        <div className="mx-auto max-w-lg scale-125 sm:scale-110 p-4 rounded-lg ">
           <h1 className="uppercase text-center text-2xl font-bold text-pink-200/80 sm:text-3xl">
             Welcome Back !
           </h1>
@@ -39,7 +40,7 @@ const RegisterComp = () => {
             action=""
             className="   mb-0  space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8 relative"
           >
-            <p onClick={() => console.log(Errorhandler)} className={Object.is(Errorhandler, null) ? "hidden" : "cursor-default lg:translate-y-[-10px] text-md uppercase text-center text-black p-4  rounded-md bg-red-500/60"}>Wrong Credentials</p>
+            <p onClick={() => console.log(Errorhandler)} className={Object.is(Errorhandler, null) ? "hidden" : "cursor-default lg:translate-y-[-10px] text-md uppercase text-center text-black font-bold backdrop-blur-md p-4  rounded-md bg-red-500/75"}>Wrong Credentials</p>
 
             <p className="text-center text-lg font-medium">
               Sign In to your account

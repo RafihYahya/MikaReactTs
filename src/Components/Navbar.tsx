@@ -2,6 +2,8 @@ import { Bell, Binoculars, HouseSimple, MagnifyingGlass, SignIn, User } from "@p
 import { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import { useStateContext } from "../Context/ContextProvider"
+import axios from "axios"
+import { ApiInfo } from "../ConstantsGlobal"
 //import { useStateContext } from "../Context/ContextProvider"
 
 const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any }) => {
@@ -25,6 +27,12 @@ const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any
     }
   }
   const { setIsAuth } = useStateContext();
+
+  const LogOutApi = async () => {
+    await axios.post(`${ApiInfo.server}:${ApiInfo.port}/api/logout`).then((response) => {
+      console.log(response.data.data);
+    }).catch((e) => console.log(e.toJSON()));
+  }
 
 
   return (
@@ -67,7 +75,7 @@ const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any
           </ul>
 
           <ul className='flex items-center h-20 md:h-auto'>
-            <li onClick={() => { setIsAuth(false), localStorage.setItem('Token', 'Empty') }} className=' text-md px-4  hover:font-bold  transition-all duration-300 ease-in hover:scale-110   hover:text-pink-600  md:block hidden  '>
+            <li onClick={() => { setIsAuth(false), localStorage.setItem('Token', 'Empty'),LogOutApi() }} className=' text-md px-4  hover:font-bold  transition-all duration-300 ease-in hover:scale-110   hover:text-pink-600  md:block hidden  '>
               <Link to="/login">
                 <SignIn size={32} />
 

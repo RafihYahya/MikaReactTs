@@ -1,9 +1,40 @@
+import { useNavigate } from "react-router-dom";
+import { useStateContext } from "../Context/ContextProvider";
+import { useState } from "react";
+import axios from "axios";
+import { ApiInfo } from "../ConstantsGlobal";
 
 const RegisterComp = () => {
+  const [Errorhandler, setErrorhandler] = useState(null);
+  const [InputValue, setInputValue] = useState({
+    name:'Enter Name',
+    username: 'Enter Username',
+    email: 'Enter Email',
+    password: 'Enter Password',
+    passwordConf: 'Confirm Password',
+  });
+  const navigate = useNavigate();
+  const { setAuthToken } = useStateContext();
+
+  const RegisterApiRequest = async (name:string|Blob,username: string | Blob, email: string | Blob, password: string | Blob, passwordConf: string | Blob) => {
+    const form = new FormData();
+    form.append('name', name);
+    form.append('username', username);
+    form.append('email', email);
+    form.append('password', password);
+    form.append('password_confirmation', passwordConf);
+    await axios.post(`${ApiInfo.server}:${ApiInfo.port}/api/register`, form).then((response) => {
+      setAuthToken(response.data.data.token);
+      localStorage.setItem('Token', response.data.data.token);
+      return navigate("/");
+    }).catch(e => setErrorhandler(e.toJSON()));
+
+  }
+
   return (
-    <div className="w-full  h-[105vh] md:h-[85vh] my-10 sm:my-0 sm:scale-[100%] md:scale-[115%] lg:scale-[90%] 3xl:scale-100 md:translate-x-[5%] lg:translate-x-0">
+    <div className="w-full pt-[45vh] sm:pt-0 h-[105vh] md:h-[85vh] my-10 sm:my-0 sm:scale-[100%] md:scale-[115%] lg:scale-[90%] 3xl:scale-100 md:translate-x-[5%] lg:translate-x-0">
       <div className="max-w-[1500px] w-full h-full flex items-center mx-auto ">
-        <div className="mx-auto max-w-lg scale-110 p-4 rounded-lg ">
+        <div className="scale-125 mx-auto max-w-lg sm:scale-110 p-4 rounded-lg ">
           <h1 className="text-center text-2xl font-bold text-pink-200 sm:text-3xl">
             Not Signed in? Register Now
           </h1>
@@ -14,8 +45,10 @@ const RegisterComp = () => {
 
           <form
             action=""
-            className="   mb-0  space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
+            className=" sm:w-full  w-[90vw] mb-0  space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
           >
+            <p onClick={() => console.log(Errorhandler)} className={Object.is(Errorhandler, null) ? "hidden" : "cursor-default lg:translate-y-[-10px] text-md uppercase text-center text-black  font-bold backdrop-blur-md p-4  rounded-md bg-red-500/75"}>Wrong Credentials</p>
+
             <p className="text-center text-lg font-medium">
               Sign up to your account
             </p>
@@ -24,11 +57,43 @@ const RegisterComp = () => {
 
 
 
-              <div className="relative">
+              <div className="relative pb-4">
                 <input
                   type="text"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c]"
-                  placeholder="Enter Username"
+                  placeholder={InputValue.name}
+                  onChange={e => setInputValue({ ...InputValue, name: e.target.value })}
+                />
+
+                <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div className="relative ">
+                <input
+                  type="text"
+                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c]"
+                  placeholder={InputValue.username}
+                  onChange={e => setInputValue({ ...InputValue, username: e.target.value })}
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -62,7 +127,9 @@ const RegisterComp = () => {
                 <input
                   type="email"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c]"
-                  placeholder="Enter email"
+                  placeholder={InputValue.email}
+                  onChange={e => setInputValue({ ...InputValue, email: e.target.value })}
+
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -93,7 +160,9 @@ const RegisterComp = () => {
                 <input
                   type="password"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c]"
-                  placeholder="Enter password"
+                  placeholder={InputValue.password}
+                  onChange={e => setInputValue({ ...InputValue, password: e.target.value })}
+
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -123,7 +192,9 @@ const RegisterComp = () => {
                 <input
                   type="password"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c]"
-                  placeholder="Confirm Password"
+                  placeholder={InputValue.passwordConf}
+                  onChange={e => setInputValue({ ...InputValue, passwordConf: e.target.value })}
+
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -152,12 +223,12 @@ const RegisterComp = () => {
 
             </div>
 
-            <button
-              type="submit"
-              className="transition-all duration-300 hover:text-violet-200 hover:bg-pink-600 text-md block w-full rounded-lg bg-pink-600/75 px-5 py-3  font-medium text-white"
+            <div
+              onClick={() => { RegisterApiRequest(InputValue.name,InputValue.username, InputValue.email, InputValue.password, InputValue.passwordConf) }}
+              className="text-center cursor-pointer transition-all duration-300 hover:text-violet-200 hover:bg-pink-600 text-md block w-full rounded-lg bg-pink-600/75 px-5 py-3  font-medium text-white"
             >
               Sign Up
-            </button>
+            </div>
 
             <p className="text-center text-sm text-gray-500">
               Already Registered

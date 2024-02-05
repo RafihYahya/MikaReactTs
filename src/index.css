@@ -61,7 +61,7 @@
 }
 @media screen and (max-width: 1200px) {
   #bgBase {
-    zoom: 50%;
+    zoom: 55%;
   }
 }
 
@@ -143,14 +143,17 @@ input {
 
 
 @media screen and (max-width: 480px) {
-  html {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/bg_background.jpg);
+  #bgBase {
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/bg_background.jpg); 
     animation: 40s ease-in-out 0s bgSizeChanger forwards;
+    */
+    background-image: url(./assets/bg_background.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
 
   }
 
-
+/*
   @keyframes bgSizeChanger {
     from {
       background-size: 400%;
@@ -160,6 +163,7 @@ input {
       background-size: 700%;
     }
   }
+  */
 }
 
 
