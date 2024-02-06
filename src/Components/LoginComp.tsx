@@ -47,7 +47,7 @@ const RegisterComp = () => {
           </h1>
 
           <p className="mx-auto mt-4 max-w-md text-center text-gray-500  ">
-            Login with your account, and get access to all the features of Mika.
+            Login To Your Account And Have Access To All Mika Features.
           </p>
 
           <form

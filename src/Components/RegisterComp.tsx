@@ -47,11 +47,11 @@ const RegisterComp = () => {
       <div className="max-w-[1500px] w-full h-full flex items-center mx-auto ">
         <div className="scale-125 mx-auto max-w-lg sm:scale-110 md:scale-150 lg:scale-125  2xl:scale-110 p-4 rounded-lg ">
           <h1 className="text-center text-2xl font-bold text-pink-200 sm:text-3xl">
-            Not Signed in? Register Now
+            You Don't Have an Account ? 
           </h1>
 
           <p className="mx-auto mt-4 max-w-md text-center text-gray-500  ">
-            Register your account.
+            Register An Account.
           </p>
 
           <form
@@ -60,8 +60,8 @@ const RegisterComp = () => {
           >
             <p onClick={() => console.log(Errorhandler)} className={Object.is(Errorhandler.msg, '') ? "hidden" : "cursor-default lg:translate-y-[-10px] text-xs uppercase text-center text-black  font-semibold backdrop-blur-md p-6  rounded-md bg-red-500/75"}>{Errorhandler.msg}</p>
 
-            <p className="text-center text-lg font-medium">
-              Sign up to your account
+            <p className="text-center text-lg uppercase font-medium">
+              Sign Up Now
             </p>
 
             <div>
