@@ -34,7 +34,7 @@ const RegisterComp = () => {
         setTimeout(() => {
           return navigate("/");
         }, 300);
-      }).catch((e) => { setErrorhandler({ ErrorhandlerFull: e.response.data, msg: e.response.data.data }); });
+      }).catch((e) => { e.response ? setErrorhandler({ ErrorhandlerFull: e.response.data, msg: e.response.data.data }) : setErrorhandler({ ErrorhandlerFull:e.response,msg:'Error Connexion'}) });
     }
 
   }

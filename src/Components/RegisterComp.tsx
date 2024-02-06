@@ -37,7 +37,7 @@ const RegisterComp = () => {
         setTimeout(() => {
           return navigate("/");
         }, 300);
-      }).catch((e) => { setErrorhandler({ ErrorhandlerFull: e.response.data, msg: e.response.data.message }); });
+      }).catch((e) => { e.response ? setErrorhandler({ ErrorhandlerFull: e.response.data, msg: e.response.data.data }) : setErrorhandler({ ErrorhandlerFull:e.response,msg:'Error Connexion'}) });
     }
 
   }
@@ -58,7 +58,7 @@ const RegisterComp = () => {
             action=""
             className=" lg:w-[30vw] 2xl:w-full sm:w-full  w-[90vw] mb-0  space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8 "
           >
-            <p onClick={() => console.log(Errorhandler)} className={Object.is(Errorhandler.msg, '') ? "hidden" : "cursor-default lg:translate-y-[-10px] text-xs uppercase text-center text-black  font-semibold backdrop-blur-md p-6  rounded-md bg-red-500/75"}>{Errorhandler.msg}</p>
+            <p onClick={() => console.log(Errorhandler)} className={Object.is(Errorhandler.msg, '') ? "hidden" : "cursor-default lg:translate-y-[-10px] text-sm uppercase text-center text-black  font-semibold backdrop-blur-md p-6  rounded-md bg-red-500/75"}>{Errorhandler.msg}</p>
 
             <p className="text-center text-lg uppercase font-medium">
               Sign Up Now
