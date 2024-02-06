@@ -13,8 +13,8 @@ const RegisterComp = () => {
   });
 
   const [InputValue, setInputValue] = useState({
-    email: 'Enter Email',
-    password: 'Enter Password',
+    email: '',
+    password: '',
   });
   const navigate = useNavigate();
   const { setAuthToken } = useStateContext();
@@ -74,7 +74,7 @@ const RegisterComp = () => {
                   type="email"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c] focus:border-2 focus:border-pink-600"
                   onChange={e => setInputValue({ ...InputValue, email: e.target.value })}
-                  placeholder={InputValue.email}
+                  placeholder={InputValue.email == '' ? 'Enter Email' : InputValue.email}
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -106,7 +106,7 @@ const RegisterComp = () => {
                   type={`${!PassVisibToggle ? 'password' : 'text'}`}
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c] focus:border-2 focus:border-pink-600"
                   onChange={e => setInputValue({ ...InputValue, password: e.target.value })}
-                  placeholder={InputValue.password}
+                  placeholder={InputValue.password == '' ? 'Enter Password' : InputValue.password}
                 />
 
                 <span
