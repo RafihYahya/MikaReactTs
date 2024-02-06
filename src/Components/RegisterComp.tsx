@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useStateContext } from "../Context/ContextProvider";
 import { useState } from "react";
 import axios from "axios";
@@ -26,15 +26,17 @@ const RegisterComp = () => {
     await axios.post(`${ApiInfo.server}:${ApiInfo.port}/api/register`, form).then((response) => {
       setAuthToken(response.data.data.token);
       localStorage.setItem('Token', response.data.data.token);
-      return navigate("/");
+      setTimeout(() => {
+        return navigate("/");
+      }, 300);
     }).catch(e => setErrorhandler(e.toJSON()));
 
   }
 
   return (
-    <div className="w-full pt-[45vh] sm:pt-0 h-[105vh] md:h-[85vh] my-10 sm:my-0 sm:scale-[100%] md:scale-[115%] lg:scale-[90%] 3xl:scale-100 md:translate-x-[5%] lg:translate-x-0">
+    <div className="w-full pt-[45vh] sm:pt-0 2xl:pt-0 md:pt-[45vh] lg:pt-[30vh] h-[105vh] md:h-[85vh] my-10 sm:my-0 sm:scale-[100%] md:scale-[115%] lg:scale-[90%] xl:scale-90 md:translate-x-[5%] lg:translate-x-0">
       <div className="max-w-[1500px] w-full h-full flex items-center mx-auto ">
-        <div className="scale-125 mx-auto max-w-lg sm:scale-110 p-4 rounded-lg ">
+        <div className="scale-125 mx-auto max-w-lg sm:scale-110 md:scale-150 lg:scale-125 2xl:scale-110 p-4 rounded-lg ">
           <h1 className="text-center text-2xl font-bold text-pink-200 sm:text-3xl">
             Not Signed in? Register Now
           </h1>
@@ -232,9 +234,9 @@ const RegisterComp = () => {
 
             <p className="text-center text-sm text-gray-500">
               Already Registered
-              <a className="underline px-2 " href="">
+              <Link className="underline px-2 " to="/login" >
                 Sign in
-              </a>
+              </Link>
             </p>
           </form>
         </div>

@@ -1,8 +1,9 @@
 import axios from "axios";
 import { ApiInfo } from "../ConstantsGlobal";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useStateContext } from "../Context/ContextProvider";
 import { useState } from "react";
+
 
 const RegisterComp = () => {
   const [Errorhandler, setErrorhandler] = useState(null);
@@ -20,14 +21,16 @@ const RegisterComp = () => {
     await axios.post(`${ApiInfo.server}:${ApiInfo.port}/api/login`, form).then((response) => {
       setAuthToken(response.data.data.token);
       localStorage.setItem('Token', response.data.data.token);
-      return navigate("/");
+      setTimeout(() => {
+        return navigate("/");
+      }, 300);
     }).catch(e => setErrorhandler(e.toJSON()));
-    
+
   }
   return (
-    <div className="  sm:scale-75 w-full h-[85vh] my-10 sm:my-0 md:scale-100  md:pt-0 pt-[50vh] lg:scale-[90%] 3xl:scale-100 ">
+    <div  className=" sm:scale-75 w-full h-[85vh] md:pt-[45vh] lg:pt-[30vh] 2xl:pt-[10vh] my-10 sm:my-0 md:scale-100  pt-[50vh] lg:scale-[90%] 3xl:scale-100 ">
       <div className=" max-w-[1500px] w-full h-full flex items-center mx-auto ">
-        <div className="mx-auto max-w-lg scale-125 sm:scale-110 p-4 rounded-lg ">
+        <div className="mx-auto max-w-lg sm:scale-110 md:scale-150 lg:scale-150 2xl:scale-110 scale-125  p-4 rounded-lg ">
           <h1 className="uppercase text-center text-2xl font-bold text-pink-200/80 sm:text-3xl">
             Welcome Back !
           </h1>
@@ -131,9 +134,9 @@ const RegisterComp = () => {
 
             <p className="text-center text-sm text-gray-500">
               You Don't Have An Account ?
-              <a className="underline px-2 " href="">
+              <Link className="underline px-2 " to="/register">
                 Sign Up
-              </a>
+              </Link>
             </p>
           </form>
         </div>

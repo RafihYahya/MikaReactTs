@@ -31,6 +31,8 @@
   font-weight: 400;
 }
 
+
+
 #logo {
   font-family: Arizonia;
 }
@@ -41,6 +43,7 @@
   background-size: 225%;
   background-blend-mode: hard-light;
   background-attachment: fixed;
+  
 }
 
 @media screen and (max-width: 768px) {
@@ -54,14 +57,23 @@
     zoom: 95%;
   }
 }
+
 @media screen and (max-width: 1840px) {
   #bgBase {
     zoom: 60%;
   }
 }
+
 @media screen and (max-width: 1200px) {
   #bgBase {
     zoom: 55%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #bgBase {
+    zoom: 55%;
+    background-size: cover;
+
   }
 }
 
@@ -76,6 +88,7 @@ textarea {
   resize: none;
   /*remove the resize handle on the bottom right*/
 }
+
 input {
   overflow: auto;
   outline: none;
@@ -105,26 +118,28 @@ input {
   background-repeat: no-repeat;
 }
 
-#notifCard{
+#notifCard {
   animation-duration: 500ms;
   animation-name: opacityfadeCard;
 }
 
-#postlistingNums{
+#postlistingNums {
   animation-duration: 1000ms;
   animation-name: opacityfadeCard;
 }
-#MainPageFade{
+
+#MainPageFade {
   animation-duration: 1000ms;
   animation-timing-function: ease-in-out;
   animation-name: opacityfadeCard;
 }
 
 
-@keyframes opacityfadeCard{
-  from{
+@keyframes opacityfadeCard {
+  from {
     opacity: 0%;
   }
+
   to {
     opacity: 100%;
   }
@@ -153,7 +168,7 @@ input {
 
   }
 
-/*
+  /*
   @keyframes bgSizeChanger {
     from {
       background-size: 400%;
@@ -212,6 +227,7 @@ input {
   border-image: linear-gradient(to right, rgb(219 39 119 / 0.75) 20%, transparent 110%) 100% 1;
 
 }
+
 #spliter2 {
   border-bottom: 2px solid;
   border-image: linear-gradient(to left, rgb(219 39 119 / 0.75) 20%, transparent 115%) 100% 1;
@@ -223,6 +239,6 @@ input {
 
 }
 
- li .active {
+li .active {
   color: rgb(219 39 119);
 }
