@@ -6,44 +6,55 @@ import { useState } from "react";
 
 
 const RegisterComp = () => {
-  const [Errorhandler, setErrorhandler] = useState(null);
+  const [PassVisibToggle, setPassVisibToggle] = useState(false)
+  const [Errorhandler, setErrorhandler] = useState({
+    msg: '',
+    ErrorhandlerFull: ''
+  });
+
   const [InputValue, setInputValue] = useState({
-    email:'Enter Email',
-    password:'Enter Password',
+    email: 'Enter Email',
+    password: 'Enter Password',
   });
   const navigate = useNavigate();
   const { setAuthToken } = useStateContext();
 
   const LoginApiRequest = async (email: string | Blob, password: string | Blob) => {
-    const form = new FormData();
-    form.append('email', email);
-    form.append('password', password);
-    await axios.post(`${ApiInfo.server}:${ApiInfo.port}/api/login`, form).then((response) => {
-      setAuthToken(response.data.data.token);
-      localStorage.setItem('Token', response.data.data.token);
-      setTimeout(() => {
-        return navigate("/");
-      }, 300);
-    }).catch(e => setErrorhandler(e.toJSON()));
+    if (email == '' || password == '') {
+      setErrorhandler({ ...Errorhandler, msg: 'Please fill out all forms' })
+    }
+    else {
+      const form = new FormData();
+      form.append('email', email);
+      form.append('password', password);
+      await axios.post(`${ApiInfo.server}:${ApiInfo.port}/api/login`, form).then((response) => {
+
+        setAuthToken(response.data.data.token);
+        localStorage.setItem('Token', response.data.data.token);
+        setTimeout(() => {
+          return navigate("/");
+        }, 300);
+      }).catch((e) => { setErrorhandler({ ErrorhandlerFull: e.response.data, msg: e.response.data.data }); });
+    }
 
   }
   return (
-    <div  className=" sm:scale-75 w-full h-[85vh] md:pt-[45vh] lg:pt-[30vh] 2xl:pt-[10vh] my-10 sm:my-0 md:scale-100  pt-[50vh] lg:scale-[90%] 3xl:scale-100 ">
+    <div className=" sm:scale-75 w-full h-[85vh] md:pt-[45vh] lg:pt-[30vh] 2xl:pt-[10vh] my-10 sm:my-0 md:scale-100  pt-[50vh] lg:scale-[90%] 3xl:scale-100 ">
       <div className=" max-w-[1500px] w-full h-full flex items-center mx-auto ">
         <div className="mx-auto max-w-lg sm:scale-110 md:scale-150 lg:scale-150 2xl:scale-110 scale-125  p-4 rounded-lg ">
           <h1 className="uppercase text-center text-2xl font-bold text-pink-200/80 sm:text-3xl">
-            Welcome Back !
+            Welcome Back <span className="text-pink-600">!</span>
           </h1>
 
           <p className="mx-auto mt-4 max-w-md text-center text-gray-500  ">
-            Login with your account, To get access to the full features of Mika.
+            Login with your account, and get access to all the features of Mika.
           </p>
 
           <form
             action=""
             className="   mb-0  space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8 relative"
           >
-            <p onClick={() => console.log(Errorhandler)} className={Object.is(Errorhandler, null) ? "hidden" : "cursor-default lg:translate-y-[-10px] text-md uppercase text-center text-black font-bold backdrop-blur-md p-4  rounded-md bg-red-500/75"}>Wrong Credentials</p>
+            <p onClick={() => console.log(Errorhandler)} className={Object.is(Errorhandler.msg, '') ? "hidden" : "cursor-default lg:translate-y-[-10px] text-sm uppercase text-center text-black font-semibold backdrop-blur-md p-6  rounded-md bg-red-500/75"}>{Errorhandler.msg}</p>
 
             <p className="text-center text-lg font-medium">
               Sign In to your account
@@ -61,8 +72,8 @@ const RegisterComp = () => {
               <div className="relative my-4">
                 <input
                   type="email"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c]"
-                  onChange={e =>  setInputValue({...InputValue,email:e.target.value})}
+                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c] focus:border-2 focus:border-pink-600"
+                  onChange={e => setInputValue({ ...InputValue, email: e.target.value })}
                   placeholder={InputValue.email}
                 />
 
@@ -90,18 +101,20 @@ const RegisterComp = () => {
                 Password
               </label>
 
-              <div className="relative my-4 pb-2">
+              <div id='formSelect' className="relative my-4 pb-2">
                 <input
-                  type="password"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c]"
-                  onChange={e =>  setInputValue({...InputValue,password:e.target.value})}
+                  type={`${!PassVisibToggle ? 'password' : 'text'}`}
+                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-[#2c2c2c] focus:border-2 focus:border-pink-600"
+                  onChange={e => setInputValue({ ...InputValue, password: e.target.value })}
                   placeholder={InputValue.password}
                 />
 
-                <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
+                <span
+                  onClick={() => setPassVisibToggle(!PassVisibToggle)}
+                  className="absolute inset-y-0 end-0 grid place-content-center px-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-gray-400"
+                    className={` ${PassVisibToggle ? "text-pink-600" : ""} translate-y-[-4px] h-4 w-4 text-gray-400`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -127,7 +140,7 @@ const RegisterComp = () => {
 
             <div
               onClick={() => { LoginApiRequest(InputValue.email, InputValue.password) }}
-              className=" cursor-pointer text-center transition-all duration-300 hover:text-violet-200 hover:bg-pink-600 text-md block w-full rounded-lg bg-pink-600/75 px-5 py-3  font-medium text-white"
+              className=" cursor-pointer text-center transition-all duration-300 hover:text-violet-200 hover:bg-pink-600 text-md block w-full rounded-lg bg-pink-600/75 px-5 py-4  font-medium text-white"
             >
               Sign In
             </div>
