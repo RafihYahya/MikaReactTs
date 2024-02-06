@@ -8,7 +8,10 @@ const RegisterComp = () => {
   const [PassVisibToggle, setPassVisibToggle] = useState(false)
   const [Errorhandler, setErrorhandler] = useState({
     msg: '',
-    ErrorhandlerFull: ''
+    ErrorhandlerFull: {
+      errors: {},
+      message: '',
+    }
   });
   const [InputValue, setInputValue] = useState({
     name: '',
@@ -58,7 +61,11 @@ const RegisterComp = () => {
             action=""
             className=" lg:w-[30vw] 2xl:w-full sm:w-full  w-[90vw] mb-0  space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8 "
           >
-            <p onClick={() => console.log(Errorhandler)} className={Object.is(Errorhandler.msg, '') ? "hidden" : "cursor-default lg:translate-y-[-10px] text-sm uppercase text-center text-black  font-semibold backdrop-blur-md p-6  rounded-md bg-red-500/75"}>{Errorhandler.msg}</p>
+            <p onClick={() => console.log(Errorhandler)} 
+            className={Object.is(Errorhandler.msg, '') ? "hidden" : 
+            "cursor-default lg:translate-y-[-10px] text-sm uppercase text-center text-black  font-semibold backdrop-blur-md p-6  rounded-md bg-red-500/75"}>
+              {!Errorhandler.msg ? Errorhandler.ErrorhandlerFull.message : Errorhandler.msg}
+              </p>
 
             <p className="text-center text-lg uppercase font-medium">
               Sign Up Now

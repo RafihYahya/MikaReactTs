@@ -9,7 +9,10 @@ const RegisterComp = () => {
   const [PassVisibToggle, setPassVisibToggle] = useState(false)
   const [Errorhandler, setErrorhandler] = useState({
     msg: '',
-    ErrorhandlerFull: ''
+    ErrorhandlerFull: {
+      errors: {},
+      message: '',
+    }
   });
 
   const [InputValue, setInputValue] = useState({
@@ -34,7 +37,7 @@ const RegisterComp = () => {
         setTimeout(() => {
           return navigate("/");
         }, 300);
-      }).catch((e) => { e.response ? setErrorhandler({ ErrorhandlerFull: e.response.data, msg: e.response.data.data }) : setErrorhandler({ ErrorhandlerFull:e.response,msg:'Error Connexion'}) });
+      }).catch((e) => { e.response ? setErrorhandler({ ErrorhandlerFull: e.response.data, msg: e.response.data.data }) : setErrorhandler({ ErrorhandlerFull: e.response, msg: 'Error Connexion' }) });
     }
 
   }
@@ -42,7 +45,7 @@ const RegisterComp = () => {
     <div className=" sm:scale-75 w-full h-[85vh] md:pt-[45vh] lg:pt-[30vh] 2xl:pt-[10vh] my-10 sm:my-0 md:scale-100  pt-[50vh] lg:scale-[90%] 3xl:scale-100 ">
       <div className=" max-w-[1500px] w-full h-full flex items-center mx-auto ">
         <div className="mx-auto max-w-lg sm:scale-110 md:scale-150 lg:scale-150 2xl:scale-110 scale-125  p-4 rounded-lg ">
-          <h1 className="uppercase text-center text-2xl font-bold text-pink-200/80 sm:text-3xl">
+          <h1 className="uppercase text-center text-2xl font-bold text-pink-300 sm:text-3xl">
             Welcome Back <span className="text-pink-600">!</span>
           </h1>
 
@@ -54,7 +57,11 @@ const RegisterComp = () => {
             action=""
             className="   mb-0  space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8 relative"
           >
-            <p onClick={() => console.log(Errorhandler)} className={Object.is(Errorhandler.msg, '') ? "hidden" : "cursor-default lg:translate-y-[-10px] text-sm uppercase text-center text-black font-semibold backdrop-blur-md p-6  rounded-md bg-red-500/75"}>{Errorhandler.msg}</p>
+            <p onClick={() => console.log(Errorhandler)}
+              className={Object.is(Errorhandler.msg, '') ? "hidden" :
+                "cursor-default lg:translate-y-[-10px] text-sm uppercase text-center text-black font-semibold backdrop-blur-md p-6  rounded-md bg-red-500/75"}>
+              {!Errorhandler.msg ? Errorhandler.ErrorhandlerFull.message : Errorhandler.msg}
+            </p>
 
             <p className="text-center text-lg font-medium">
               Sign In to your account

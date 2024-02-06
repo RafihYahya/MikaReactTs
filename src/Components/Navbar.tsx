@@ -1,9 +1,11 @@
-import { Bell, Binoculars, HouseSimple, MagnifyingGlass, SignIn, User } from "@phosphor-icons/react"
+import { Article, Bell, Chats, HouseSimple, MagnifyingGlass, SignIn, User } from "@phosphor-icons/react"
 import { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import { useStateContext } from "../Context/ContextProvider"
 import axios from "axios"
 import { ApiInfo } from "../ConstantsGlobal"
+import { ToggleMobileNavbarAtom2 } from "../Context/Atoms"
+import { useAtom } from "jotai"
 //import { useStateContext } from "../Context/ContextProvider"
 
 const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any }) => {
@@ -33,6 +35,8 @@ const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any
       console.log(response.data.data);
     }).catch((e) => console.log(e.toJSON()));
   }
+  const [Toggler, setToggler] = useAtom(ToggleMobileNavbarAtom2)
+
 
 
   return (
@@ -49,25 +53,27 @@ const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any
           </ul>
 
           <ul className="flex items-center  ">
-            <li id='home' className='px-12  text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden  '><NavLink id="house" to="/" ><HouseSimple size={32} />
+            <li title="Home Page" id='home' className='px-12  text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden  '><NavLink id="house" to="/" ><HouseSimple size={32} />
 
             </NavLink > </li>
-            <li id='dashboard ' className='px-12  text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden '><a href=""><Binoculars size={32} />
+            <li title="Chats" id='dashboard ' className='px-12  text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden '><NavLink to="/chats"><Chats size={32} />
 
-            </a> </li>
-            <li id='search' onClick={() => { checkifNotifActive(); togglerset2(searchclicked) }} className={`cursor-pointer px-12 text-md transition-all duration-300 ease-in  hover:scale-110 ${!searchclicked ? "hover:text-pink-600" : "text-pink-600"}  md:block hidden `}><MagnifyingGlass size={32} />
+
+
+            </NavLink> </li>
+            <li title="Search" id='search' onClick={() => { checkifNotifActive(); togglerset2(searchclicked) }} className={`cursor-pointer px-12 text-md transition-all duration-300 ease-in  hover:scale-110 ${!searchclicked ? "hover:text-pink-600" : "text-pink-600"}  md:block hidden `}><MagnifyingGlass size={32} />
 
 
 
             </li>
             <div className="relative">
-              <li id='Notifications' onClick={() => { checkifSearchActive(); togglerset(notifclicked) }} className={` cursor-pointer relative px-12  text-md transition-all duration-300 ease-in hover:scale-110 ${!notifclicked ? "hover:text-pink-600" : "text-pink-600"}  md:block hidden  `}><Bell size={32} />
+              <li title="Notifications" id='Notifications' onClick={() => { checkifSearchActive(); togglerset(notifclicked) }} className={` cursor-pointer relative px-12  text-md transition-all duration-300 ease-in hover:scale-110 ${!notifclicked ? "hover:text-pink-600" : "text-pink-600"}  md:block hidden  `}><Bell size={32} />
 
 
               </li>
               {/* bg-[#050505bb] */}
             </div>
-            <li id='user' className='px-12 text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden '>
+            <li title="User Page" id='user' className='px-12 text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden '>
               <NavLink to="/user" ><User size={32} />
               </NavLink>
             </li>
@@ -75,12 +81,13 @@ const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any
           </ul>
 
           <ul className='flex items-center h-20 md:h-auto'>
-            <li onClick={() => { setIsAuth(false), localStorage.setItem('Token', 'Empty'),LogOutApi() }} className=' text-md px-4  hover:font-bold  transition-all duration-300 ease-in hover:scale-110   hover:text-pink-600  md:block hidden  '>
+            <li  onClick={() => { setIsAuth(false), localStorage.setItem('Token', 'Empty'),LogOutApi() }} className=' text-md px-4  hover:font-bold  transition-all duration-300 ease-in hover:scale-110   hover:text-pink-600  md:block hidden  '>
               <Link to="/login">
                 <SignIn size={32} />
 
             </Link>
             </li>
+            <li onClick={() => setToggler(!Toggler)} className="text-md px-4  hover:font-bold transition-all duration-300 ease-in hover:scale-110  hover:text-pink-600  md:hidden block"><div><Article size={32} /></div></li>
             <li className="2xl:w-12"></li>
           </ul>
 

@@ -4,11 +4,16 @@ import PostListingComp from '../Components/PostListingComp'
 import { useState } from 'react';
 import SearchCardComp from '../Components/SearchCardComp';
 import NotificationsCardComp from '../Components/NotificationsCardComp';
+import NavBarGuestMobileComp from '../Components/NavBarGuestMobileComp';
+import { useAtom } from 'jotai';
+import { ToggleMobileNavbarAtom2 } from '../Context/Atoms';
 
 const UserPage = () => {
 
   const [NotifToggler, setNotifToggler] = useState('hidden');
   const [SearchToggler, setSearchToggler] = useState('hidden');
+  const [ToggleNavMb,setToggleNavMb] = useAtom(ToggleMobileNavbarAtom2)
+
 
   
   const toggleSearch = (e:boolean) => {
@@ -28,7 +33,7 @@ const UserPage = () => {
   return (
     <>
       <Navbar  togglerset={toggleNotif3} togglerset2={toggleSearch}  />
-      <div className='relative pt-[25%] lg:pt-[6%] p-10 flex items-center justify-between gap-[30vh] lg:gap-8 w-full h-[150vh] lg:h-[143vh] 2xl:h-[120vh] max-w-[1650px] mx-auto lg:flex-row flex-col'>
+      <div className={`${!ToggleNavMb ? 'overflow-hidden' : ''} relative pt-[25%] lg:pt-[6%] p-10 flex items-center justify-between gap-[30vh] lg:gap-8 w-full h-[150vh] lg:h-[143vh] 2xl:h-[120vh] max-w-[1650px] mx-auto lg:flex-row flex-col`}>
       <NotificationsCardComp  props={NotifToggler} position={'left-[50%] top-[7%]'}/>
       <SearchCardComp props={SearchToggler} position={'left-[32%] 2xl:left-[25%] top-[7%]'}/>
         <div className=' w-full h-full flex justify-start items-center flex-col gap-10 pt-10 lg:mr-[4%] lg:ml-[-4%]'>
@@ -82,6 +87,9 @@ const UserPage = () => {
             <PostListingComp />
           </div>
         </div>
+        <div onClick={() => {setToggleNavMb(!ToggleNavMb)}} className={`${ToggleNavMb ? 'hidden':'block cursor-pointer '}  backdrop-blur-sm w-full h-[200vh] top-[0] bg-black/50 absolute md:hidden block z-[100] `}>
+        </div>
+        <NavBarGuestMobileComp prop={ToggleNavMb}/>
       </div>
     </>
   )

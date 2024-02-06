@@ -1,5 +1,5 @@
-import { Article, Binoculars, SignIn } from "@phosphor-icons/react"
-import { Link, NavLink } from "react-router-dom"
+import { Article, Chats, SignIn } from "@phosphor-icons/react"
+import {  NavLink } from "react-router-dom"
 import { ToggleMobileNavbarAtom } from "../Context/Atoms"
 import { useAtom } from "jotai"
 const NavbarGuest = () => {
@@ -25,7 +25,9 @@ const NavbarGuest = () => {
             
             
             
-            <li id='user' className='px-12 text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden '> <Link to="/extra" ><Binoculars size={32} /></Link> </li>
+            <li id='user' className='px-12 text-md transition-all duration-300 ease-in  hover:scale-110 hover:text-pink-600  md:block hidden '> <NavLink to="/chats" ><Chats size={32} />
+
+</NavLink> </li>
 
           </ul>
 

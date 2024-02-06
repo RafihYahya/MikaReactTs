@@ -7,10 +7,16 @@ import TabsComp from '../Components/TabsComp';
 import MainGroupSidelineCardComp from '../Components/MainGroupSidelineCardComp';
 import NotificationsCardComp from '../Components/NotificationsCardComp';
 import SearchCardComp from '../Components/SearchCardComp';
+import { useAtom } from 'jotai';
+import { ToggleMobileNavbarAtom2 } from '../Context/Atoms';
+import NavBarGuestMobileComp from '../Components/NavBarGuestMobileComp';
 
 //type Props = {a:number};
 
 const HomePage = (): JSX.Element => {
+
+  const [ToggleNavMb,setToggleNavMb] = useAtom(ToggleMobileNavbarAtom2)
+
 
   const [ToolbarToggler, setToolbarToggler] = useState('');
 
@@ -52,7 +58,8 @@ const HomePage = (): JSX.Element => {
 
     <>
       <Navbar togglerset={toggleNotif3} togglerset2={toggleSearch} />
-      <div className=' pt-24 fixed overflow-hidden w-full h-full md:grid md:grid-cols-11  p-2  gap-2 lg:pt-24 md:pt-20 '>
+      
+      <div className={` ${!ToggleNavMb ? 'overflow-hidden' : ''} pt-24 fixed overflow-hidden w-full h-full md:grid md:grid-cols-11  p-2  gap-2 lg:pt-24 md:pt-20 `}>
         <div id='sideLines' className='py-4 px-2 md:block md:invisible lg:visible hidden  md:col-span-1 lg:col-span-2 h-[100%] 2xl:h-[95%] bg-transparent lg:bg-[#ede8e805] backdrop-blur-md rounded-sm text-center '>
           <MainGroupSidelineCardComp />
           <MainGroupSidelineCardComp />
@@ -62,10 +69,10 @@ const HomePage = (): JSX.Element => {
         <div id='mainCenter' className='relative  flex flex-col md:col-span-9 lg:col-span-7 gap-4  h-full '>
           <SearchCardComp props={SearchToggler} position={'left-[25%] 2xl:left-[17%] top-[-1%]'} />
           <NotificationsCardComp props={NotifToggler} position={'left-[50%]'}/>
-          <div className={` ${ToolbarToggler} h-[10vh] bg-[#EDE8E805] backdrop-blur-sm rounded-md flex items-center justify-center `}>
+          <div className={` ${ToolbarToggler} lg:translate-y-0 md:translate-y-[75%]  h-[10vh] bg-[#EDE8E805] backdrop-blur-sm rounded-md flex items-center justify-center `}>
             <TabsComp />
           </div>
-          <div id="scrollable" className=' h-[125vh] lg:h-[120vh] bg-[#EDE8E805] backdrop-blur-md rounded-md text-center overflow-auto  '>
+          <div id="scrollable" className='lg:translate-y-0 md:translate-y-[10%] h-full sm:h-[125vh] lg:h-[120vh] bg-[#EDE8E805] backdrop-blur-md rounded-md text-center overflow-auto  '>
             <CreatePostComp />
             <div className='h-[5vh] lg:h-[10vh]'></div>
             <h1 id="spliter" className='text-left ml-2 lg:ml-[5%] text-2xl font-light uppercase  text-pink-600/75 tracking-widest	  w-[90%]'>P<span className='text-pink-600/75 tracking-wider'>osts</span></h1>
@@ -86,6 +93,9 @@ const HomePage = (): JSX.Element => {
           <MiniProfileUserCardComp />
           <MiniProfileUserCardComp />
         </div>
+        <div onClick={() => {setToggleNavMb(!ToggleNavMb)}} className={`${ToggleNavMb ? 'hidden':'block cursor-pointer '} overflow-none backdrop-blur-sm w-full h-[200vh] top-[0] bg-black/50 absolute md:hidden block z-[100] `}>
+        </div>
+        <NavBarGuestMobileComp prop={ToggleNavMb}/>
       </div>
     </>
   )

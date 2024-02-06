@@ -45,6 +45,11 @@
   background-attachment: fixed;
   
 }
+#test01 {
+  mix-blend-mode: multiply;
+
+}
+
 
 @media screen and (max-width: 768px) {
   #bgBase {
