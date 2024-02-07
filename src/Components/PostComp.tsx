@@ -1,8 +1,9 @@
 import { Chats, Heart, Share, ThumbsDown, ThumbsUp } from "@phosphor-icons/react"
 
-const PostComp = () => {
+const PostComp = ({keyid,prop,item}:any) => {
+  let Prop = prop.data.post[item]
   return (
-    <div className=" w-[93%] md:w-[90%] lg:w-[75%] lg:h-[33%] 2xl:min-h-[26%] 2xl:h-auto h-[30%] md:h-[24%]
+    <div  className=" w-[93%] md:w-[90%] lg:w-[75%] lg:h-[33%] 2xl:min-h-[26%] 2xl:h-auto h-[30%] md:h-[24%]
           mx-auto rounded-md flex justify-between items-center lg:my-[10%] mt-[20%] mb-[50%] 
           md:mt-[20%] md:mb-[20%] md:p-4 md:mr-[7%] lg:mr-[18%] md:flex-row flex-col gap-4 md:gap-0">
       <div className=" md:w-[15%] md:h-full w-8 h-8 rounded-md m-2 flex items-center
@@ -26,10 +27,7 @@ const PostComp = () => {
       <div className="flex justify-between items-center flex-col h-full w-full">
         <div className="bg-[#ede8e80a] backdrop-blur-md w-full 2xl:min-h-[20vh] h-full rounded-md
               mb-2 border-pink-600/75 border-t-2 ">
-          <p className="text-left m-10">Lorem ipsum dolor sit amet consectetur,
-                                      adipisicing elit. Temporibus nihil illo vero perferendis
-                                      ab quis repellat repellendus, accusantium neque pariatur sequi,
-                                      quidem quaerat numquam eaque quo laboriosam exercitationem dicta deserunt..</p>
+          <p className="text-left m-10">{Prop.post}</p>
         </div>
         <div className="w-full h-20 flex items-center justify-center gap-1">
           <div className="bg-[#ede8e805] w-full h-full 2xl:h-[80%] rounded-sm

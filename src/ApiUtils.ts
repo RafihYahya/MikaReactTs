@@ -45,4 +45,10 @@ export const testApi = async () => {
     })
 }
  
+export const getAuthUserInfoApi = async () => {
+    await axios.get(`${ApiInfo.server}:${ApiInfo.port}/api/whoami`).
+    then((response) => {console.log(response.data)})
+    .catch(e => console.log(e.response));
+
+    }
 

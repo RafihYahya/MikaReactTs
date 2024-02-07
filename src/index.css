@@ -133,6 +133,14 @@ input {
   animation-duration: 1000ms;
   animation-name: opacityfadeCard;
 }
+#postlistingFrame{
+  animation-duration: 1000ms;
+  animation-name: opacityfadeCard;
+}
+#postdesc{
+  animation-duration: 500ms;
+  animation-name: opacityfadeCard;
+}
 
 #MainPageFade {
   animation-duration: 1000ms;
