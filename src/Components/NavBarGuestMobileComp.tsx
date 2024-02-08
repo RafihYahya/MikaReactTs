@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 
 const NavBarGuestMobileComp = ({ prop }: any) => {
     return (
-        <div className={`${prop ? 'hidden' : 'flex'} items-center justify-center backdrop-blur-3xl w-[550px] h-[100vh] top-[20%] left-[9%] rounded-md  border-2 border-pink-600/75 absolute md:hidden  z-[102] `} >
+        <div className={`${prop ? 'hidden' : 'flex'} items-center justify-center backdrop-blur-lg w-[550px] h-[100vh] top-[20%] left-[9%] rounded-md  border-2 border-pink-600/75 absolute md:hidden  z-[102] `} >
             <ul className=" flex items-center justify-center gap-24">
                 <div className="flex flex-col items-center justify-center gap-20">
                     <div className="flex items-center justify-center gap-2">

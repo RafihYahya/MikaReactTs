@@ -141,6 +141,10 @@ input {
   animation-duration: 500ms;
   animation-name: opacityfadeCard;
 }
+#scrollable{
+  animation-duration: 1000ms;
+  animation-name: opacityfadeCard;
+}
 
 #MainPageFade {
   animation-duration: 1000ms;

@@ -1,7 +1,7 @@
 import { CaretLeft, CaretRight, ChartLine, Gear } from '@phosphor-icons/react'
 import Navbar from '../Components/Navbar'
 import PostListingComp from '../Components/PostListingComp'
-import { useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 import SearchCardComp from '../Components/SearchCardComp';
 import NotificationsCardComp from '../Components/NotificationsCardComp';
 import NavBarGuestMobileComp from '../Components/NavBarGuestMobileComp';
@@ -91,7 +91,6 @@ const UserPage = () => {
     }
   }
   let KeyMapId: any = PostListingsArray[NumberSetter].data.post
-  console.log(NumberSetter)
 
   return (
     <>
@@ -163,7 +162,7 @@ const UserPage = () => {
           overflow-auto border-b-2 border-pink-600/75'>
             <button type="button" className='lg:translate-x-0 translate-x-[85%] py-4 px-10 lg:px-8 rounded-md 
             border-2 border-pink-600/50 hover:bg-pink-600/30 transition-colors duration-200 ease-in uppercase  hover:border-pink-600/75 mb-8 backdrop-blur-md'>Show All</button>
-            {Object.keys(PostListingsArray[NumberSetter].data.post).map((item) => 
+            {Object.keys(PostListingsArray[NumberSetter].data.post).reverse().map((item) => 
             <PostListingComp key={KeyMapId[item].id} keyid={KeyMapId[item].id} prop={PostListingsArray[NumberSetter]} item={item} />)}
           </div>
         </div>

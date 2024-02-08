@@ -17,6 +17,7 @@ import { ApiInfo } from '../ConstantsGlobal';
 
 const HomePage = (): JSX.Element => {
   
+  const [MainToggle, setMainToggle] = useState(false)
   const [ToggleNavMb, setToggleNavMb] = useAtom(ToggleMobileNavbarAtom2)
   const [ToolbarToggler, setToolbarToggler] = useState('');
   const mainCenterObj = document.getElementById('scrollable');
@@ -50,7 +51,7 @@ const HomePage = (): JSX.Element => {
   useEffect(() => {
     //getAuthUserInfoApi();
     getAuthUserPostListingApi();
-  }, [NumberToggler]);
+  }, [NumberToggler,MainToggle]);
 
 
 
@@ -79,7 +80,6 @@ const HomePage = (): JSX.Element => {
     }
   }
   let KeyMapId: any = PostListings.data.post
-  console.log(NumberToggler)
 
   return (
 
@@ -105,14 +105,14 @@ const HomePage = (): JSX.Element => {
           </div>
           <div id="scrollable" className='lg:translate-y-0 md:translate-y-[10%] h-full sm:h-[125vh] 
           lg:h-[120vh] bg-[#EDE8E805] backdrop-blur-md rounded-md text-center overflow-auto  '>
-            <CreatePostComp prop={PostListings.data.owner}
+            <CreatePostComp prop={PostListings.data.owner} settoggle={setMainToggle} toggle={MainToggle}
             />
             <div className='h-[5vh] lg:h-[10vh]'></div>
             <h1 id="spliter" className='text-left ml-2 lg:ml-[5%] text-2xl font-light uppercase 
              text-pink-600/75 tracking-widest	  w-[90%]'>P<span className='text-pink-600/75
               tracking-wider'>osts</span></h1>
 
-            {Object.keys(PostListings.data.post).map((item) => <PostComp key={KeyMapId[item].id} keyid={KeyMapId[item].id} prop={PostListings} item={item} />)}
+            {Object.keys(PostListings.data.post).reverse().map((item) => <PostComp key={KeyMapId[item].id} keyid={KeyMapId[item].id} prop={PostListings} item={item} />)}
 
             <div className='h-[35vh]'></div>
           </div>

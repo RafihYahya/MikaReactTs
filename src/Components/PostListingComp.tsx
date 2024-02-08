@@ -15,9 +15,19 @@ type PostListingsType = {
 }
 
 const PostListingComp = ({keyid,prop,item}:PostListingsType) => {
-  let Prop = prop.data.post[item as keyof typeof prop]
+  const maxCharsPost = 50;
+  let Prop = prop.data.post[item as keyof typeof prop];
+  let ShortenedPost = Prop.post.slice(0,Math.floor((Prop.post.length/6)));
+  const ShortenedPlusBreak = (s:string) => {
+    return(
+    <>
+    {s}
+    <br/>Read More ...
+    </>
+    )
+  }
   return (
-    <div id="postlistingFrame" className="border-t-2 border-black hover:border-pink-600 transition-all duration-200 ease-in-out  w-full h-54 lg:h-54  mb-8 rounded-md backdrop-blur-md flex items-center justify-between  gap-4  p-4 ">
+    <div id="postlistingFrame" className="cursor-pointer border-t-2 border-black hover:border-pink-600 transition-all duration-200 ease-in-out  w-full h-54 lg:h-54  mb-8 rounded-md backdrop-blur-md flex items-center justify-between  gap-4  p-4 ">
       <div className="hidden lg:flex items-center justify-center flex-col gap-3 ">
         <div className="w-24 h-24 bg-[#EDE8E810] rounded-full border-2 border-pink-600/20"></div>
         <h3 id="" className="text-sm">{prop.data.owner}</h3>
@@ -25,7 +35,7 @@ const PostListingComp = ({keyid,prop,item}:PostListingsType) => {
       <div className="w-full  flex items-start justify-center  lg:gap-3  h-full lg:flex-row flex-col">
         <div className=" w-full h-full  rounded-lg backdrop-blur-md p-6">
           <p id="" className="text-sm lg:text-left text-center">
-            {Prop.post}
+            {Prop.post.length < maxCharsPost ? Prop.post : ShortenedPlusBreak(ShortenedPost) }
           </p>
         </div>
         <div className="w-24 h-full  flex items-center justify-center lg:justify-between flex-row lg:flex-col gap-14 lg:gap-1 mx-auto ">
