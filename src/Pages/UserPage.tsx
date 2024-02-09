@@ -109,7 +109,7 @@ const UserPage = () => {
             </div>
             <div className='flex justify-center items-center flex-col gap-2'>
               <div className='w-72 h-72 bg-[#EDE8E810] backdrop-blur-sm border-2 border-pink-600/75 rounded-full mb-2'></div>
-              <h2 className='text-lg'>Miaw Profile</h2>
+              <h2 className='text-lg'>{PostListingsArray[0].data.owner}</h2>
             </div>
             <div className='flex justify-center items-center flex-col gap-2 '>
               <div className='w-14 h-14 bg-[#EDE8E820] backdrop-blur-sm border-2 border-pink-600/20 rounded-full mb-2'></div>

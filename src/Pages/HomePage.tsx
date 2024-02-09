@@ -16,7 +16,7 @@ import { ApiInfo } from '../ConstantsGlobal';
 //type Props = {a:number};
 
 const HomePage = (): JSX.Element => {
-  
+
   const [MainToggle, setMainToggle] = useState(false)
   const [ToggleNavMb, setToggleNavMb] = useAtom(ToggleMobileNavbarAtom2)
   const [ToolbarToggler, setToolbarToggler] = useState('');
@@ -51,12 +51,12 @@ const HomePage = (): JSX.Element => {
   useEffect(() => {
     //getAuthUserInfoApi();
     getAuthUserPostListingApi();
-  }, [NumberToggler,MainToggle]);
+  }, [NumberToggler, MainToggle]);
 
 
 
 
-  const NumberSetter = (i:number,j:number) => {
+  const NumberSetter = (i: number, j: number) => {
     NumberToggler < j ? setNumberToggler(i) : setNumberToggler(0);
   }
   const hideToolbarSelection = () => {
@@ -73,12 +73,23 @@ const HomePage = (): JSX.Element => {
     if (SearchToggler == 'block') {
       setSearchToggler('hidden')
     }
+  }
+
+  const hideAndShowTabs = () => {
     if (mainCenterObj) {
       mainCenterObj.addEventListener("scroll", () => {
-        hideToolbarSelection();
+        if (mainCenterObj.scrollTop < 150) {
+          console.log(mainCenterObj.scrollTop)
+          setToolbarToggler('');
+        } else {
+          hideToolbarSelection();
+        }
       })
     }
+
   }
+  hideAndShowTabs()
+
   let KeyMapId: any = PostListings.data.post
 
   return (

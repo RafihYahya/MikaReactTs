@@ -1,8 +1,11 @@
 import { Chats, Heart, Share, ThumbsDown, ThumbsUp } from "@phosphor-icons/react"
+import axios from "axios"
 import { useState } from "react"
+import { ApiInfo } from "../ConstantsGlobal"
 
 const PostComp = ({ keyid, prop, item }: any) => {
   const [TimeOutToggle, setTimeOutToggle] = useState([true, true, true])
+  const [Prop, setProp] = useState({ Props: prop.data.post[item], Active: [false,false,false] })
 
   const FlipBetweenTextAndIconFalse = (j: number) => {
     let Temp = TimeOutToggle.map((e, i) => i == j ? true : e)
@@ -10,13 +13,20 @@ const PostComp = ({ keyid, prop, item }: any) => {
       setTimeOutToggle(Temp)
     }, 500);
   }
-  const setArrayTimeOutToggle = (j:number) => {
-    let Temp =  TimeOutToggle.map((e, i) => i == j ? false : e)
+  const setArrayTimeOutToggle = (j: number) => {
+    let Temp = TimeOutToggle.map((e, i) => i == j ? false : e)
     setTimeOutToggle(Temp);
   }
+  const loveIncreaseApiRequest = async (j:number) => {
+    if (!Prop.Active[j]) {
+      await axios.post(`${ApiInfo.server}:${ApiInfo.port}/api/post/love/${Prop.Props.id}`).then(response => {
+        console.log(response.data)
+      }).catch(e => console.log(e.response))
+      setProp({ ...Prop, Props: { ...Prop.Props, loveNum: (Prop.Props.loveNum + 1) }, Active: Prop.Active.map((_e,i) => i == j ? true : Prop.Active[j] ) });
+    }
 
-  let Prop = prop.data.post[item]
-  return (
+  }
+    return (
     <div className=" w-[93%] md:w-[90%] lg:w-[75%] lg:h-[33%] 2xl:min-h-[26%] 2xl:h-auto h-[35%] md:h-[24%]
           mx-auto rounded-md flex justify-between items-center lg:my-[10%] mt-[20%] mb-[30%] sm:mb-[50%] 
           md:mt-[20%] md:mb-[20%] md:p-4 md:mr-[7%] lg:mr-[18%] md:flex-row flex-col gap-4 md:gap-0">
@@ -27,38 +37,40 @@ const PostComp = ({ keyid, prop, item }: any) => {
              mb-2 rounded-full border-2 border-pink-600/75"></div>
         <div className=" h-full w-full flex justify-center items-center md:flex-col flex-row gap-32 md:gap-2 pb-6 sm:pb-0">
           <div onClick={() => {
+            loveIncreaseApiRequest(0);
             setArrayTimeOutToggle(0)
-            ; FlipBetweenTextAndIconFalse(0)
+              ; FlipBetweenTextAndIconFalse(0)
           }}
-            className="bg-[#ede8e815] backdrop-blur-md rounded-full w-20 h-20  sm:w-14 sm:h-14 
-               flex justify-center items-center p-6 md:p-0 hover:text-pink-600/75
-               transition-colors duration-300 ease-in-out">
-            {!TimeOutToggle[0] ? <h4 className="text-center text-pink-600 text-2xl">{Prop.loveNum ?? '00'}</h4> : (window.innerWidth < 540 ? <Heart size={32} /> : <Heart size={28} />)}
+            className={`bg-[#ede8e815] backdrop-blur-md rounded-full w-20 h-20  sm:w-14 sm:h-14 
+               flex justify-center items-center p-6 md:p-0 hover:text-pink-600/75 ${Prop.Active[0] ? "text-pink-600/75" : ''}
+               transition-colors duration-300 ease-in-out `}>
+            {!TimeOutToggle[0] ? <h4 className="text-center text-pink-600 text-xl">{Prop.Props.loveNum ?? '00'}</h4> : (window.innerWidth < 540 ? <Heart size={32} /> : <Heart size={28} />)}
           </div>
           <div onClick={() => {
-            setArrayTimeOutToggle(1)
-            ; FlipBetweenTextAndIconFalse(1)
+            setArrayTimeOutToggle(1);
+            ; FlipBetweenTextAndIconFalse(1);
+
           }}
             className="bg-[#ede8e815] backdrop-blur-md rounded-full w-20 h-20  sm:w-14 sm:h-14
                 flex justify-center items-center p-6 md:p-0  hover:text-pink-600/75
                 transition-colors duration-300 ease-in-out">
-            {!TimeOutToggle[1] ? <h4 className="text-center text-pink-600 text-2xl">{Prop.loveNum ?? '00'}</h4> : (window.innerWidth < 540 ? <ThumbsUp size={32} /> : <ThumbsUp size={28} />)}
+            {!TimeOutToggle[1] ? <h4 className="text-center text-pink-600 text-xl">{Prop.Props.likeNum ?? '00'}</h4> : (window.innerWidth < 540 ? <ThumbsUp size={32} /> : <ThumbsUp size={28} />)}
           </div>
           <div onClick={() => {
             setArrayTimeOutToggle(2)
-            ; FlipBetweenTextAndIconFalse(2)
+              ; FlipBetweenTextAndIconFalse(2)
           }}
             className="bg-[#ede8e815] backdrop-blur-md rounded-full w-20 h-20  sm:w-14 sm:h-14
                 flex justify-center items-center p-6 md:p-0 hover:text-pink-600/75
                 transition-colors duration-300 ease-in-out">
-            {!TimeOutToggle[2] ? <h4 className="text-center text-pink-600 text-2xl">{Prop.loveNum ?? '00'}</h4> : (window.innerWidth < 540 ? <ThumbsDown size={32} /> : <ThumbsDown size={28} />)}
+            {!TimeOutToggle[2] ? <h4 className="text-center text-pink-600 text-xl">{Prop.Props.dislikeNum ?? '00'}</h4> : (window.innerWidth < 540 ? <ThumbsDown size={32} /> : <ThumbsDown size={28} />)}
           </div>
         </div>
       </div>
       <div className="flex justify-between items-center flex-col h-full w-full">
         <div className="bg-[#ede8e80a] backdrop-blur-md w-full 2xl:min-h-[20vh] h-full rounded-md overflow-auto
               mb-2 border-pink-600/75 border-t-2 ">
-          <p className="text-left m-10 ">{Prop.post}</p>
+          <p className="text-left m-10 ">{Prop.Props.post}</p>
         </div>
         <div className="w-full h-20 flex items-center justify-center gap-1">
           <div className="bg-[#ede8e805] w-full h-full 2xl:h-[80%] rounded-sm
