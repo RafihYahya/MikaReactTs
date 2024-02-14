@@ -81,7 +81,7 @@ const Navbar = ({ togglerset, togglerset2 }: { togglerset: any, togglerset2: any
           </ul>
 
           <ul className='flex items-center h-20 md:h-auto'>
-            <li  title="Logout" onClick={() => { setIsAuth(false), localStorage.setItem('Token', 'Empty'),LogOutApi() }} className=' text-md px-4  hover:font-bold  transition-all duration-300 ease-in hover:scale-110   hover:text-pink-600  md:block hidden  '>
+            <li  title="Logout" onClick={() => { setIsAuth(false), localStorage.setItem('Token', 'Empty'),localStorage.setItem('User', 'Empty'),LogOutApi() }} className=' text-md px-4  hover:font-bold  transition-all duration-300 ease-in hover:scale-110   hover:text-pink-600  md:block hidden  '>
               <Link to="/login">
                 <SignIn size={32} />
 

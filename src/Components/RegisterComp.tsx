@@ -37,6 +37,7 @@ const RegisterComp = () => {
       await axios.post(`${ApiInfo.server}:${ApiInfo.port}/api/register`, form).then((response) => {
         setAuthToken(response.data.data.token);
         localStorage.setItem('Token', response.data.data.token);
+        localStorage.setItem('User',response.data.data.user.id);
         setTimeout(() => {
           return navigate("/");
         }, 300);

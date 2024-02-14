@@ -19,10 +19,10 @@ function CreatePostComp({ prop, toggle, settoggle }: any) {
       then((response) => console.log(response.data)).catch(e => console.log(e))
     setBorderToggler(true);
   }
-
+  
 
   return (
-    <div id="postCreation" className=" backdrop-blur-md relative border-t-2 border-pink-600/75 flex items-start justify-between gap-4 mx-auto my-[5vh]  w-[90%] lg:w-[70%] h-[40vh] lg:h-[35vh] 2xl:h-[30vh] rounded-lg py-8 px-8 lg:translate-x-[-5%]">
+    <div id="postCreation" className=" backdrop-blur-md relative border-t-2 border-pink-600/75 flex items-start justify-between gap-4 mx-auto my-[1vh]  w-[90%] lg:w-[70%] h-[40vh] lg:h-[35vh] 2xl:h-[27vh] rounded-lg py-6 px-6 lg:translate-x-[-5%]">
       <div id="borderMaker" className="absolute  w-64 h-64 rounded-bl-md  bottom-0 left-0 border-l-2 border-b-2 border-pink-600/75"></div>
       <div id="borderMaker2" className="absolute  w-64 h-64 rounded-br-md  bottom-0 right-0 border-r-2 border-b-2 border-pink-600/75"></div>
       <div className="flex justify-center items-center flex-col  gap-2">

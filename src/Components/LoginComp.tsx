@@ -34,6 +34,8 @@ const RegisterComp = () => {
 
         setAuthToken(response.data.data.token);
         localStorage.setItem('Token', response.data.data.token);
+        localStorage.setItem('User', response.data.data.user.id);
+        console.log(response.data)
         setTimeout(() => {
           return navigate("/");
         }, 300);

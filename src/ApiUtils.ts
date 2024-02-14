@@ -13,15 +13,15 @@ export const checkIfTokenExist = () => {
 }
 export const ApiCallGetToken = async () => {
 
-    await axios.get("https://jsonplaceholder.typicode.com/posts/1").then((response) => {
-        if(!Object.is(response.data,null)){
-            localStorage.setItem('Token','Empty')
-            
+        if(!Object.is(null,null)){
+            localStorage.setItem('Token','Empty')            
+            localStorage.setItem('User','Empty')            
         }
         else{
             localStorage.setItem('Token', 'Empty')
+            localStorage.setItem('User', 'Empty')
         }
-    })
+    
     let FreshToken:string = localStorage.getItem('Token')!;
     return FreshToken;
 }
@@ -33,7 +33,6 @@ export const getAuthTokenFromServer = () => {
         return ApiCallGetToken();
     }
     else {
-        console.log(Token)
         return Token
     }
 }

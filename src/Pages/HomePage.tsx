@@ -41,7 +41,6 @@ const HomePage = (): JSX.Element => {
             post: response.data.data.post
           }
         })
-        console.log(response.data.data);
       });
   }
 
@@ -79,7 +78,6 @@ const HomePage = (): JSX.Element => {
     if (mainCenterObj) {
       mainCenterObj.addEventListener("scroll", () => {
         if (mainCenterObj.scrollTop < 150) {
-          console.log(mainCenterObj.scrollTop)
           setToolbarToggler('');
         } else {
           hideToolbarSelection();
@@ -90,7 +88,7 @@ const HomePage = (): JSX.Element => {
   }
   hideAndShowTabs()
 
-  let KeyMapId: any = PostListings.data.post
+  let KeyMapId: any = PostListings.data.post;
 
   return (
 
@@ -118,12 +116,12 @@ const HomePage = (): JSX.Element => {
           lg:h-[120vh] bg-[#EDE8E805] backdrop-blur-md rounded-md text-center overflow-auto  '>
             <CreatePostComp prop={PostListings.data.owner} settoggle={setMainToggle} toggle={MainToggle}
             />
-            <div className='h-[5vh] lg:h-[10vh]'></div>
+            <div className='h-[2vh] lg:h-[0vh]'></div>
             <h1 id="spliter" className='text-left ml-2 lg:ml-[5%] text-2xl font-light uppercase 
              text-pink-600/75 tracking-widest	  w-[90%]'>P<span className='text-pink-600/75
               tracking-wider'>osts</span></h1>
 
-            {Object.keys(PostListings.data.post).reverse().map((item) => <PostComp key={KeyMapId[item].id} keyid={KeyMapId[item].id} prop={PostListings} item={item} />)}
+            {Object.keys(PostListings.data.post).reverse().map((item) => <PostComp key={KeyMapId[item].id} keyid={KeyMapId[item].id} prop={PostListings} setprops={setPostListings} item={item} />)}
 
             <div className='h-[35vh]'></div>
           </div>

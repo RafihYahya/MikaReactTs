@@ -10,7 +10,6 @@ import { Provider } from 'jotai'
 
 const AuthLayout = () => {
   const { isAuth } = useStateContext()
-  console.log(isAuth)
   return (
     <>
       <Provider>

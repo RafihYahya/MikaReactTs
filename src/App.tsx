@@ -11,7 +11,6 @@ const App = () => {
   const AsyncWrapper = async () => {
     let Temp = await getAuthTokenFromServer();
     setAuthToken(Temp);
-    console.log(AuthToken)
     AuthToken == 'Empty' ? setIsAuth(false) : setIsAuth(true);
 
   }

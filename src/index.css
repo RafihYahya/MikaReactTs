@@ -57,7 +57,7 @@
   }
 }
 
-@media screen and (min-width: 1850px) {
+@media screen and (min-width: 1980px) {
   #bgBase {
     zoom: 95%;
   }
@@ -69,7 +69,7 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1385px) {
   #bgBase {
     zoom: 55%;
   }
@@ -260,3 +260,5 @@ input {
 li .active {
   color: rgb(219 39 119);
 }
+
+
