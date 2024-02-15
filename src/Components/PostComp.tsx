@@ -2,7 +2,7 @@ import { Chats, Check, Heart, PencilSimple, Share, ThumbsDown, ThumbsUp, X } fro
 import axios from "axios"
 import { useEffect, useRef, useState } from "react"
 import { ApiInfo } from "../ConstantsGlobal"
-
+//@ts-ignore
 const PostComp = ({ keyid, prop, setprops, item }: any) => {
 
   const [TimeOutToggle, setTimeOutToggle] = useState([true, true, true]);
@@ -11,7 +11,7 @@ const PostComp = ({ keyid, prop, setprops, item }: any) => {
   const [InputModifyValue, setInputModifyValue] = useState('');
 
   const mainPRef = useRef<any>(null);
-
+//@ts-ignore
   const appendImg = (Imgsrc: string) => {
     const mainText = mainPRef.current;
     const node = document.createElement("img");

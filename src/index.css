@@ -38,7 +38,7 @@
 }
 
 #bgBase {
-  background-image: url(./assets/bg_background.jpg);
+  background-image: url(./assets/bg_background.webp);
   background-position: center center;
   background-size: 225%;
   background-blend-mode: hard-light;
@@ -107,7 +107,7 @@ input {
 }
 
 #bgAnimaLog {
-  background-image: url(./assets/bg_background.jpg);
+  background-image: url(./assets/bg_background.webp);
   animation: 75s ease-in-out 0s bgSizeChanger forwards;
   background-repeat: no-repeat;
 }
@@ -118,7 +118,7 @@ input {
 }
 
 #bgAnimaLogBlend {
-  background-image: url(./assets/bg_background.jpg);
+  background-image: url(./assets/bg_background.webp);
   background-blend-mode: hard-light;
   animation: 75s ease-in-out 0s bgSizeChanger forwards;
   background-repeat: no-repeat;
@@ -220,7 +220,7 @@ input {
     /* background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./assets/bg_background.jpg); 
     animation: 40s ease-in-out 0s bgSizeChanger forwards;
     */
-    background-image: url(./assets/bg_background.jpg);
+    background-image: url(./assets/bg_background.webp);
     background-size: cover;
     background-repeat: no-repeat;
 

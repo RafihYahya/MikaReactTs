@@ -14,7 +14,7 @@ type PostListingsType = {
   item: any 
 
 }
-
+//@ts-ignore
 const PostListingComp = ({keyid,prop,item}:PostListingsType) => {
   const maxCharsPost = 75;
   let Prop = prop.data.post[item as keyof typeof prop];

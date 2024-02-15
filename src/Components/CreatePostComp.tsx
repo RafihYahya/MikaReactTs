@@ -27,7 +27,7 @@ function CreatePostComp({ prop, toggle, settoggle,toolbar }: any) {
       <div id="borderMaker2" className="absolute  w-64 h-64 rounded-br-md  bottom-0 right-0 border-r-2 border-b-2 border-pink-600/75"></div>
       <div className="flex justify-center items-center flex-col  gap-2">
         <div className="2xl:h-32 2xl:w-32 w-28 h-28 rounded-full bg-[#ede8e815]  lg:block hidden"></div>
-        <h3 className="text-center text-sm  lg:block hidden font-light">{prop}</h3>
+        <h4 className="text-center text-sm  lg:block hidden font-light">{prop}</h4>
       </div>
       <div id={!toolbar ? 'MainPageFade2' : ''} className={` items-end justify-between flex-col  h-full gap-2 lg:w-[80%] w-full ${!toolbar == false ? 'hidden' : 'flex' } `}>
 
