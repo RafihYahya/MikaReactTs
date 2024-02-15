@@ -62,7 +62,8 @@ const PostComp = ({ keyid, prop, setprops, item }: any) => {
     console.log(body)
     const form = new FormData();
     form.append('body', body);
-    await axios.put(`${ApiInfo.server}:${ApiInfo.port}/api/post/update/${Prop.Props.id}`,form).then(response => {
+    form.append('_method', 'put');
+    await axios.post(`${ApiInfo.server}:${ApiInfo.port}/api/post/update/${Prop.Props.id}`, form).then(response => {
       console.log(response.data)
     }).catch(e => console.log(e.response));
     setProp({ ...Prop, Props: { ...Prop.Props, post: InputModifyValue } })
@@ -153,7 +154,7 @@ const PostComp = ({ keyid, prop, setprops, item }: any) => {
       </div>
       <div className="flex justify-between items-center flex-col h-full w-full relative ">
         <div onClick={() => deletePostApiRequest()} className={`absolute right-0 p-4  hover:text-red-500 z-[200] cursor-pointer ${Prop.Props.user_id == localStorage.getItem('User') ? 'block' : 'hidden'}`}> <X size={28} /></div>
-        <div onClick={() => setModifyToggler(!ModifyToggler)} className={`absolute right-0 top-[15%] p-4 ${ModifyToggler ? 'text-orange-500' : ''} hover:text-orange-500/75 z-[200] cursor-pointer ${Prop.Props.user_id == localStorage.getItem('User') ? 'block' : 'hidden'}`}> <PencilSimple size={28} /></div>
+        <div onClick={() => { setModifyToggler(!ModifyToggler); setInputModifyValue(Prop.Props.post) }} className={`absolute right-0 top-[15%] p-4 ${ModifyToggler ? 'text-orange-500' : ''} hover:text-orange-500/75 z-[200] cursor-pointer ${Prop.Props.user_id == localStorage.getItem('User') ? 'block' : 'hidden'}`}> <PencilSimple size={28} /></div>
         <div onClick={() => modifyPostApiRequest(InputModifyValue)} className={`absolute right-0 top-[30%] p-4  hover:text-green-500 z-[200] cursor-pointer ${ModifyToggler ? 'block' : 'hidden'}`}> <Check size={32} /></div>
 
         <div className="bg-[#ede8e80a] backdrop-blur-md w-full 2xl:min-h-[20vh] h-full rounded-md overflow-auto

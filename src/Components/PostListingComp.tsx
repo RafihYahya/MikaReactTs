@@ -16,7 +16,7 @@ type PostListingsType = {
 }
 
 const PostListingComp = ({keyid,prop,item}:PostListingsType) => {
-  const maxCharsPost = 50;
+  const maxCharsPost = 75;
   let Prop = prop.data.post[item as keyof typeof prop];
   let ShortenedPost = Prop.post.slice(0,Math.floor((Prop.post.length/6)));
   const ShortenedPlusBreak = (s:string) => {

@@ -151,6 +151,46 @@ input {
   animation-timing-function: ease-in-out;
   animation-name: opacityfadeCard;
 }
+#MainPageFade2 {
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+  animation-name: opacityfadeCard;
+}
+#TabHideAndAnimate {
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+  animation-name: shrinkAndFade;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+#TabHideAndAnimateReverse {
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+  animation-name: shrinkAndFadeReverse;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shrinkAndFade {
+  from {
+    height: full;
+    opacity: 100%;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+@keyframes shrinkAndFadeReverse {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: full;
+    opacity: 100%;
+  }
+}
 
 
 @keyframes opacityfadeCard {

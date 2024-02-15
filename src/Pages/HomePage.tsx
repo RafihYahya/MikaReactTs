@@ -20,6 +20,7 @@ const HomePage = (): JSX.Element => {
   const [MainToggle, setMainToggle] = useState(false)
   const [ToggleNavMb, setToggleNavMb] = useAtom(ToggleMobileNavbarAtom2)
   const [ToolbarToggler, setToolbarToggler] = useState('');
+  const [ToolbarTogglerBool, setToolbarTogglerBool] = useState(false);
   const mainCenterObj = document.getElementById('scrollable');
   const [NotifToggler, setNotifToggler] = useState('hidden');
   const [SearchToggler, setSearchToggler] = useState('hidden');
@@ -59,7 +60,7 @@ const HomePage = (): JSX.Element => {
     NumberToggler < j ? setNumberToggler(i) : setNumberToggler(0);
   }
   const hideToolbarSelection = () => {
-    setToolbarToggler('hidden');
+    setToolbarToggler('TabHideAndAnimate');
   }
   const toggleSearch = (e: boolean) => {
     !e ? setSearchToggler("block") : setSearchToggler("hidden");
@@ -77,9 +78,11 @@ const HomePage = (): JSX.Element => {
   const hideAndShowTabs = () => {
     if (mainCenterObj) {
       mainCenterObj.addEventListener("scroll", () => {
-        if (mainCenterObj.scrollTop < 150) {
-          setToolbarToggler('');
+        if (mainCenterObj.scrollTop < 75) {
+          setToolbarTogglerBool(false)
+         setToolbarToggler('TabHideAndAnimateReverse')
         } else {
+          setToolbarTogglerBool(true)
           hideToolbarSelection();
         }
       })
@@ -108,13 +111,14 @@ const HomePage = (): JSX.Element => {
         <div id='mainCenter' className='relative  flex flex-col md:col-span-9 lg:col-span-7 gap-4  h-full '>
           <SearchCardComp props={SearchToggler} position={'left-[25%] 2xl:left-[17%] top-[-1%]'} />
           <NotificationsCardComp props={NotifToggler} position={'left-[50%]'} />
-          <div className={` ${ToolbarToggler} lg:translate-y-0 md:translate-y-[75%]  
-          h-[10vh] bg-[#EDE8E805] backdrop-blur-sm rounded-md flex items-center justify-center `}>
+          <div id={ToolbarToggler} className={` lg:translate-y-0 md:translate-y-[75%]  
+          h-[10vh] bg-[#EDE8E805] backdrop-blur-sm rounded-md flex items-center justify-center
+          `}>
             <TabsComp NumberAdder={NumberSetter} Number={NumberToggler} />
           </div>
           <div id="scrollable" className='lg:translate-y-0 md:translate-y-[10%] h-full sm:h-[125vh] 
           lg:h-[120vh] bg-[#EDE8E805] backdrop-blur-md rounded-md text-center overflow-auto  '>
-            <CreatePostComp prop={PostListings.data.owner} settoggle={setMainToggle} toggle={MainToggle}
+            <CreatePostComp prop={PostListings.data.owner} settoggle={setMainToggle} toggle={MainToggle} toolbar={ToolbarTogglerBool}
             />
             <div className='h-[2vh] lg:h-[0vh]'></div>
             <h1 id="spliter" className='text-left ml-2 lg:ml-[5%] text-2xl font-light uppercase 
